@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "react-app",
+    "airbnb",
+    "plugin:jsx-a11y/recommended",
+    "react-app/jest"
+  ],
+  "globals": {
+    "React": true
+  },
+  "plugins": [
+    "jsx-a11y"
+  ],
+  "rules": {
+    "semi": 1,
+    "comma-dangle": ["error", "never"],
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".jsx"] }]
+  }
+}
