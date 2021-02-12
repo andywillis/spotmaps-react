@@ -1,6 +1,7 @@
 import React from 'react';
 import AppProvider from './store/provider';
 import PageNumbers from './components/PageNumbers';
+import Spotmap from './components/Spotmap';
 
 import styles from './App.module.css';
 
@@ -14,7 +15,7 @@ export default function App() {
           </nav>
         </header>
         <main className={styles.main}>
-          Content
+          <Spotmap />
         </main>
         <footer className={styles.footer}>
           &copy; Andy Willis 2021
