@@ -15,6 +15,7 @@
     "semi": 1,
     "linebreak-style": ["error", "windows"],
     "comma-dangle": ["error", "never"],
+    "react/prop-types": 0,
     "react/jsx-one-expression-per-line": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".jsx"] }]
   }
