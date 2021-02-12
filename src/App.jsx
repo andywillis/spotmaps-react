@@ -17,7 +17,7 @@ export default function App() {
           Content
         </main>
         <footer className={styles.footer}>
-          Footer
+          &copy; Andy Willis 2021
         </footer>
       </article>
     </AppProvider>

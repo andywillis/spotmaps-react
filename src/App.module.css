@@ -3,7 +3,7 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: repeat(auto-fit, minmax(384px, 1fr));
-  grid-gap: 16px;
+  /* grid-gap: 16px; */
 }
 
 .header,
@@ -16,4 +16,8 @@
 
 .main {
   background-color: #efefef;
+}
+
+.footer {
+  text-align: right;
 }
