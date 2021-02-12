@@ -1,0 +1,12 @@
+.pageNumber {
+  border: 1px solid black;
+  border-radius: 0.5em;
+  margin-right: 0.2em;
+  padding: 0.5em 1em;
+  background-color: rgb(194, 190, 219);
+}
+
+.pageNumber:hover {
+  cursor: pointer;
+  background-color: rgb(115, 158, 219);
+}

@@ -1,17 +1,25 @@
 import React from 'react';
 import AppProvider from './store/provider';
-import PageNumber from './components/PageNumber';
+import PageNumbers from './components/PageNumbers';
+
 import styles from './App.module.css';
 
 export default function App() {
   return (
     <AppProvider>
-      <div className={styles.app}>
-        <header>
-          Hi
-          <PageNumber />
+      <article className={styles.article}>
+        <header className={styles.header}>
+          <nav>
+            <PageNumbers />
+          </nav>
         </header>
-      </div>
+        <main className={styles.main}>
+          Content
+        </main>
+        <footer className={styles.footer}>
+          Footer
+        </footer>
+      </article>
     </AppProvider>
   );
 }

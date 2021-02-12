@@ -1,8 +1,5 @@
-import { useContext } from 'react';
-import AppContext from '../../store/context';
+import styles from './index.module.css';
 
-export default function PageNumber() {
-  const state = useContext(AppContext);
-  console.log(state);
-  return 'pn';
+export default function PageNumber({ number }) {
+  return <div className={styles.pageNumber}>{number}</div>;
 }

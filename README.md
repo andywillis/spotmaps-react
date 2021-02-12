@@ -6,7 +6,7 @@ App
   Footer
 
 Body
-  Spotmap
+  Spotmaps
 
 Spotmap
   Header

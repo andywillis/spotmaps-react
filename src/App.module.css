@@ -1,4 +1,19 @@
-.app {
-  text-align: center;
+.article {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: repeat(auto-fit, minmax(384px, 1fr));
+  grid-gap: 16px;
 }
 
+.header,
+.main,
+.footer {
+  grid-column-start: 1;
+  grid-column-end: -1;
+  padding: 1em 0.5em;
+}
+
+.main {
+  background-color: #efefef;
+}
