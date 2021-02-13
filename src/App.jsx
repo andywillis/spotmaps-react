@@ -9,8 +9,8 @@ export default function App() {
 
   useEffect(() => {
     async function getData() {
-      const res = await fetch('/json');
-      const data = await res.json();
+      const res = await fetch('/hex');
+      const data = await res.text();
       console.log(data);
     }
     getData();
