@@ -1,11 +1,9 @@
-.pageNumber {
-  border-radius: 0.5em;
-  margin-right: 0.2em;
-  padding: 0.5em 1em;
-  background-color: rgb(215, 213, 233);
+.spot {
+  background-color: black;
 }
 
-.pageNumber:hover {
-  cursor: pointer;
-  background-color: rgb(115, 158, 219);
+.spot:after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
 }

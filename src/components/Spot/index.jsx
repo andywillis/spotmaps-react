@@ -1,3 +1,5 @@
+import styles from './index.module.css';
+
 export default function Spot() {
-  return 'spot';
+  return <div className={styles.spot} />;
 }
