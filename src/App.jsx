@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import AppProvider from './store/provider';
 import PageNumbers from './components/PageNumbers';
 import Spotmap from './components/Spotmap';
@@ -7,16 +7,20 @@ import styles from './App.module.css';
 
 export default function App() {
 
+  const [spotmap, setSpotmap] = useState();
+
   useEffect(() => {
     const extension = 'hex';
     const filename = `Black Hole, The.${extension}`;
     async function getData() {
-      const res = await fetch(`/hex/${filename}`);
-      const data = await res.text();
-      console.log(data);
+      const res = await fetch(`/json/${filename}`);
+      const data = await res.json();
+      setSpotmap(data);
     }
     getData();
   });
+
+  if (!spotmap) return null;
 
   return (
     <AppProvider>
@@ -27,7 +31,7 @@ export default function App() {
           </nav>
         </header>
         <main className={styles.main}>
-          <Spotmap />
+          <Spotmap data={spotmap} />
         </main>
         <footer className={styles.footer}>
           &copy; Andy Willis 2021
