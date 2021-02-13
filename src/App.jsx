@@ -8,8 +8,10 @@ import styles from './App.module.css';
 export default function App() {
 
   useEffect(() => {
+    const extension = 'hex';
+    const filename = `Black Hole, The.${extension}`;
     async function getData() {
-      const res = await fetch('/hex');
+      const res = await fetch(`/hex/${filename}`);
       const data = await res.text();
       console.log(data);
     }

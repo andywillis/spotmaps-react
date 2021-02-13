@@ -9,7 +9,9 @@ app.listen(4000, () => {
   console.log('Server running on port 4000');
 });
 
-app.get('/hex', async (req, res) => {
-  const text = await IO.readTextFile(path.join(`${__dirname}/../hex/Black Hole, The.hex`));
+app.get('/hex/:filename', async (req, res) => {
+  const filePath = `${__dirname}/../hex/`;
+  const { filename } = req.params;
+  const text = await IO.readTextFile(path.join(`${filePath}${filename}`));
   res.send(text);
 });
