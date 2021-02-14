@@ -11,9 +11,9 @@ export function reducer(state, action) {
 
   switch (type) {
 
-    case 'saveConfig': {
+    case 'saveLibrary': {
       const { limit } = state;
-      const numberOfSpotmaps = payload.length;
+      const numberOfSpotmaps = Object.keys(payload).length;
       const numberOfPages = Math.floor(numberOfSpotmaps / limit) + (numberOfSpotmaps % limit);
       return { ...state, numberOfPages, library: payload };
     }
@@ -22,11 +22,11 @@ export function reducer(state, action) {
       return { ...state, page: payload };
     }
 
-    case 'RWD': {
+    case 'rwd': {
       return { ...state, page: 1 };
     }
 
-    case 'FFD': {
+    case 'ffd': {
       const { numberOfPages } = state;
       return { ...state, page: numberOfPages };
     }

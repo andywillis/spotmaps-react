@@ -1,7 +1,7 @@
 import styles from './index.module.css';
 
-export default function Details({ filename }) {
+export default function Details({ title }) {
   return (
-    <div className={styles.details}>{filename}</div>
+    <div className={styles.details}>{title}</div>
   );
 }

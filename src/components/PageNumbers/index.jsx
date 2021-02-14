@@ -1,8 +1,7 @@
 import { useContext } from 'react';
 
 import PageNumber from '../PageNumber';
-import RWD from '../RWD';
-import FFD from '../FFD';
+import Directional from '../Directional';
 
 import AppContext from '../../store/context';
 
@@ -50,12 +49,12 @@ export default function PageNumbers() {
           dispatch({ type: 'setPage', payload: parseInt(number, 10) });
           break;
         }
-        case 'RWD': {
-          if (!disabled) dispatch({ type: 'RWD' });
+        case 'rwd': {
+          if (!disabled) dispatch({ type: 'rwd' });
           break;
         }
-        case 'FFD': {
-          if (!disabled) dispatch({ type: 'FFD' });
+        case 'ffd': {
+          if (!disabled) dispatch({ type: 'ffd' });
           break;
         }
         default: break;
@@ -67,9 +66,9 @@ export default function PageNumbers() {
   return (
     <>
       <div role="presentation" className={styles.pageNumbers} onClick={handleClick}>
-        <RWD page={page} />
+        <Directional type="rwd" page={page} />
         {numberOfPages > 1 ? buildPageList({ page, numberOfPages }) : null}
-        <FFD page={page} numberOfPages={numberOfPages} />
+        <Directional type="ffd" page={page} numberOfPages={numberOfPages} />
       </div>
     </>
   );
