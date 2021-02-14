@@ -7,20 +7,19 @@ import styles from './App.module.css';
 
 export default function App() {
 
-  const [spotmap, setSpotmap] = useState();
+  const [spotmapData, setSpotmapData] = useState();
 
   useEffect(() => {
-    const extension = 'hex';
-    const filename = `Black Hole, The.${extension}`;
+    const filename = 'Black Hole, The';
     async function getData() {
-      const res = await fetch(`/json/${filename}`);
+      const res = await fetch(`/spotmap/${filename}`);
       const data = await res.json();
-      setSpotmap(data);
+      setSpotmapData(data);
     }
     getData();
-  });
+  }, []);
 
-  if (!spotmap) return null;
+  if (!spotmapData) return null;
 
   return (
     <AppProvider>
@@ -31,7 +30,7 @@ export default function App() {
           </nav>
         </header>
         <main className={styles.main}>
-          <Spotmap data={spotmap} />
+          <Spotmap data={spotmapData} />
         </main>
         <footer className={styles.footer}>
           &copy; Andy Willis 2021
