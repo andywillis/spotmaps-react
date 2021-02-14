@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+
 const fs = require('fs');
 const { promisify } = require('util');
 
@@ -5,7 +7,7 @@ const mkdirP = promisify(fs.mkdir);
 const statP = promisify(fs.stat);
 const writeFileP = promisify(fs.writeFile);
 const readFileP = promisify(fs.readFile);
-
+const readDirP = promisify(fs.readdir);
 
 /**
  * File operations
@@ -13,6 +15,15 @@ const readFileP = promisify(fs.readFile);
  * @class IO
  */
 class IO {
+
+  static readFolder(filePath) {
+    try {
+      const res = readDirP(filePath);
+      return res;
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
 
   static addFolder(filePath) {
     try {
