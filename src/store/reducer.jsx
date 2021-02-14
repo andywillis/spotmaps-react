@@ -1,43 +1,40 @@
-export const initialState = [
-  {
-    title: 'First post',
-    body: 'Body text',
-    tags: ['Tag one', 'Tag two']
-  },
-  {
-    title: 'Second post',
-    body: 'Body text',
-    tags: ['Tag one', 'Tag two']
-  },
-  {
-    title: 'Third post',
-    body: 'Body text',
-    tags: ['Tag one', 'Tag two']
-  },
-  {
-    title: 'Fourth post',
-    body: 'Body text',
-    tags: ['Tag one', 'Tag two']
-  },
-  {
-    title: 'Fifth post',
-    body: 'Body text',
-    tags: ['Tag one', 'Tag two']
-  },
-  {
-    title: 'Sixth post',
-    body: 'Body text',
-    tags: ['Tag one', 'Tag two']
-  }
-];
+export const initialState = {
+  page: 1,
+  numberOfPages: 0,
+  limit: 5,
+  library: []
+};
 
-export function reducer(action, state) {
-  switch (action.type) {
-    case 'addTag': {
-      return state;
+export function reducer(state, action) {
+
+  const { type, payload } = action;
+
+  switch (type) {
+
+    case 'saveConfig': {
+      const { limit } = state;
+      const numberOfSpotmaps = payload.length;
+      const numberOfPages = Math.floor(numberOfSpotmaps / limit) + (numberOfSpotmaps % limit);
+      return { ...state, numberOfPages, library: payload };
     }
+
+    case 'setPage': {
+      return { ...state, page: payload };
+    }
+
+    case 'RWD': {
+      return { ...state, page: 1 };
+    }
+
+    case 'FFD': {
+      const { numberOfPages } = state;
+      return { ...state, page: numberOfPages };
+    }
+
     default: {
       return state;
     }
+
   }
+
 }

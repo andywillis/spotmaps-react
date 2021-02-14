@@ -9,11 +9,11 @@ app.listen(4000, () => {
   console.log('Server running on port 4000');
 });
 
-app.get('/config', async (req, res) => {
+app.get('/library', async (req, res) => {
   const filePath = `${__dirname}/library/`;
   const filename = 'library';
   const data = await IO.readTextFile(path.join(`${filePath}${filename}.json`));
-  res.json(data);
+  res.send(data);
 });
 
 app.get('/spotmap/:filename', async (req, res) => {
