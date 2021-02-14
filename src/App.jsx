@@ -20,7 +20,7 @@ export default function App() {
     getData();
   }, [dispatch]);
 
-  if (!Object.keys(library).length) return null;
+  if (!Object.keys(library).length) return 'null';
 
   return (
     <article className={styles.article}>
@@ -31,7 +31,6 @@ export default function App() {
       </header>
       <main className={styles.main}>
         <SpotmapList />
-        {/* <Spotmap data={spotmapData} /> */}
       </main>
       <footer className={styles.footer}>
         &copy; Andy Willis 2021

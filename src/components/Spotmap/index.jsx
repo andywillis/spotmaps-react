@@ -24,16 +24,15 @@ function buildSpotmap({ hexData }) {
 
 export default function Spotmap({ data }) {
 
-  const { title, minutes, hexData } = data;
-  console.log(data)
+  const { minutes, hexData, ...details } = data;
 
   useEffect(() => {
     document.documentElement.style.setProperty('--minutes', `${minutes}`);
   }, [minutes]);
 
   return (
-    <section>
-      <Details title={title} />
+    <section className={styles.container}>
+      <Details details={{ ...details }} />
       <section className={styles.spotmap}>
         {buildSpotmap({ hexData })}
       </section>

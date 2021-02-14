@@ -3,7 +3,9 @@ const path = require('path');
 const express = require('express');
 const IO = require('./lib/io');
 
-const library = require('./library/library.json').reduce((acc, c) => {
+let library = [];
+
+const libraryTemp = require('./library/library.json').reduce((acc, c) => {
   const { title } = c;
   acc[title] = acc[title] || { ...c };
   return acc;
@@ -30,8 +32,9 @@ async function compileLibrary() {
   const filenames = await IO.readFolder(path.join(`${hexFilePath}`));
   const hexData = await getData(filenames);
   hexData.forEach((obj) => {
-    if (library[obj.filename]) library[obj.filename].hexData = obj.hexData;
+    if (libraryTemp[obj.filename]) libraryTemp[obj.filename].hexData = obj.hexData;
   });
+  library = Object.values(libraryTemp);
 }
 
 compileLibrary();

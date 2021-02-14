@@ -15,9 +15,11 @@
 }
 
 .main {
-  background-color: #efefef;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .footer {
   text-align: right;
+  border-top: 1px solid #232332;
 }

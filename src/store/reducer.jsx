@@ -13,8 +13,8 @@ export function reducer(state, action) {
 
     case 'saveLibrary': {
       const { limit } = state;
-      const numberOfSpotmaps = Object.keys(payload).length;
-      const numberOfPages = Math.floor(numberOfSpotmaps / limit) + (numberOfSpotmaps % limit);
+      const numberOfSpotmaps = payload.length;
+      const numberOfPages = Math.ceil(numberOfSpotmaps / limit);
       return { ...state, numberOfPages, library: payload };
     }
 
