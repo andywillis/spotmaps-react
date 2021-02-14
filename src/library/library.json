@@ -1222,7 +1222,7 @@
 	},
 	{
 		"display": true,
-		"title": "Klown",
+		"title": "Klovn",
 		"numberOfSpots": 5460,
 		"filename": "Klovn.jpg",
 		"director": ["Nørgaard, Mikkel"],
@@ -1563,7 +1563,7 @@
 	},
 	{
 		"display": false,
-		"title": "ParaNorman",
+		"title": "Paranorman",
 		"numberOfSpots": 5580,
 		"filename": "Paranorman.jpg",
 		"id": 145,
@@ -1816,7 +1816,7 @@
 	},
 	{
 		"display": true,
-		"title": "Safety Last!",
+		"title": "Safety Last",
 		"numberOfSpots": 4620,
 		"filename": "Safety Last.jpg",
 		"id": 168,
@@ -1893,7 +1893,7 @@
 	},
 	{
 		"display": true,
-		"title": "Shame",
+		"title": "Shame - Bergman",
 		"numberOfSpots": 6480,
 		"filename": "Shame - Bergman.jpg",
 		"director": ["Bergman, Ingmar"],
@@ -2762,9 +2762,9 @@
 		"year": 1984
 	},
 	{
-		"title": "There Will be Blood",
+		"title": "There Will Be Blood",
 		"numberOfSpots": 9960,
-		"filename": "There Will be Blood.jpg",
+		"filename": "There Will Be Blood.jpg",
 		"id": 256,
 		"display": true,
 		"director": ["Anderson, Paul Thomas"],

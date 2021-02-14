@@ -30,7 +30,7 @@ async function compileLibrary() {
   const filenames = await IO.readFolder(path.join(`${hexFilePath}`));
   const hexData = await getData(filenames);
   hexData.forEach((obj) => {
-    library[obj.filename].hexData = obj.hexData;
+    if (library[obj.filename]) library[obj.filename].hexData = obj.hexData;
   });
 }
 
