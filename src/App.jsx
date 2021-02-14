@@ -1,41 +1,53 @@
-import React, { useEffect, useState } from 'react';
-import AppProvider from './store/provider';
+import React, { useContext, useEffect } from 'react';
 import PageNumbers from './components/PageNumbers';
-import Spotmap from './components/Spotmap';
+import SpotmapList from './components/SpotmapList';
+// import Spotmap from './components/Spotmap';
+
+import AppContext from './store/context';
 
 import styles from './App.module.css';
 
 export default function App() {
 
-  const [spotmapData, setSpotmapData] = useState();
+  const { state, dispatch } = useContext(AppContext);
+
+  // const [spotmapData, setSpotmapData] = useState();
 
   useEffect(() => {
-    const filename = 'Black Hole, The';
     async function getData() {
-      const res = await fetch(`/spotmap/${filename}`);
-      const data = await res.json();
-      setSpotmapData(data);
+      const res = await fetch('/library');
+      const library = await res.json();
+      dispatch({ type: 'saveConfig', payload: library });
     }
     getData();
-  }, []);
+  }, [dispatch]);
 
-  if (!spotmapData) return null;
+  // useEffect(() => {
+  //   const filename = 'Black Hole, The';
+  //   async function getData() {
+  //     const res = await fetch(`/spotmap/${filename}`);
+  //     const data = await res.json();
+  //     setSpotmapData(data);
+  //   }
+  //   getData();
+  // }, []);
+
+  if (!Object.keys(state).length) return null;
 
   return (
-    <AppProvider>
-      <article className={styles.article}>
-        <header className={styles.header}>
-          <nav>
-            <PageNumbers />
-          </nav>
-        </header>
-        <main className={styles.main}>
-          <Spotmap data={spotmapData} />
-        </main>
-        <footer className={styles.footer}>
-          &copy; Andy Willis 2021
-        </footer>
-      </article>
-    </AppProvider>
+    <article className={styles.article}>
+      <header className={styles.header}>
+        <nav>
+          <PageNumbers />
+        </nav>
+      </header>
+      <main className={styles.main}>
+        <SpotmapList />
+        {/* <Spotmap data={spotmapData} /> */}
+      </main>
+      <footer className={styles.footer}>
+        &copy; Andy Willis 2021
+      </footer>
+    </article>
   );
 }
