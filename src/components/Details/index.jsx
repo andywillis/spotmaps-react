@@ -1,9 +1,9 @@
 import styles from './index.module.css';
 
-export default function Details({ details }) {
-  const { title, director, writer, year, genre } = details;
+export default function Details({ mainWidth, data }) {
+  const { title, director, writer, year, genre } = data;
   return (
-    <div className={styles.details}>
+    <div className={styles.details} style={{ width: Math.floor(mainWidth / 60) * 60 }}>
       <div>
         <div className={styles.label}>Title</div>
         <div className={styles.detail}>{title}</div>

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import PageNumber from '../PageNumber';
-import Directional from '../Directional';
+import PageNumber from './PageNumber';
+import Directional from './Directional';
 
 import AppContext from '../../store/context';
 

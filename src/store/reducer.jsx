@@ -2,7 +2,8 @@ export const initialState = {
   page: 1,
   numberOfPages: 0,
   limit: 5,
-  library: []
+  library: [],
+  mainWidth: 0
 };
 
 export function reducer(state, action) {
@@ -16,6 +17,10 @@ export function reducer(state, action) {
       const numberOfSpotmaps = payload.length;
       const numberOfPages = Math.ceil(numberOfSpotmaps / limit);
       return { ...state, numberOfPages, library: payload };
+    }
+
+    case 'setMainWidth': {
+      return { ...state, mainWidth: payload };
     }
 
     case 'setPage': {
