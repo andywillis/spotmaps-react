@@ -1,9 +1,0 @@
-.spot {
-  background-color: black;
-}
-
-.spot:after {
-  content: '';
-  display: block;
-  padding-bottom: 100%;
-}
