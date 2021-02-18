@@ -9,14 +9,14 @@ export default function SpotmapCanvas({ numberOfSpots, hexData, mainWidth }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    setSpotSize(mainWidth < 360 ? 5 : Math.floor(mainWidth / 60));
+    setSpotSize(mainWidth < 360 ? 4 : Math.floor(mainWidth / 60));
   }, [mainWidth]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
     context.fillStyle = '#676767';
-    context.canvas.width = spotSize * 60;
+    context.canvas.width = (spotSize * 60);
     context.canvas.height = spotSize * (numberOfSpots / 60);
 
     let count = 0;
@@ -38,6 +38,9 @@ export default function SpotmapCanvas({ numberOfSpots, hexData, mainWidth }) {
       context.rect(xpos, ypos, spotSize, spotSize);
       context.fillStyle = `rgba(${r}, ${g}, ${b}, 255)`;
       context.fill();
+      context.lineWidth = 0.2;
+      context.strokeStyle = 'rgba(0, 0, 0, 255)';
+      context.stroke();
       xpos += spotSize;
       count++;
 

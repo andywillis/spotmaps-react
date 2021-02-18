@@ -1,7 +1,9 @@
 .details {
   background-color: #232323;
   color: white;
-  padding: 0.5em;
+  font-size: 0.9em;
+  padding: 0.5em 0.3em;
+  width: 100%;
   margin: 0 auto;
   text-align: left;
   /* border-radius: 0.5em; */
@@ -9,6 +11,7 @@
 
 .label {
   width: 4em;
+  color: rgb(221, 220, 185);
   text-align: right;
   display: inline-block;
   margin-right: 1em;

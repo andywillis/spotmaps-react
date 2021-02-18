@@ -38,12 +38,16 @@ export default function App() {
   return (
     <article className={styles.article}>
       <header className={styles.header}>
+        Spotmaps Redux
+      </header>
+      <main ref={mainRef} className={styles.main}>
         <nav>
           <PageNumbers />
         </nav>
-      </header>
-      <main ref={mainRef} className={styles.main}>
         <SpotmapList />
+        <nav>
+          <PageNumbers />
+        </nav>
       </main>
       <footer className={styles.footer}>
         &copy; Andy Willis 2021

@@ -6,11 +6,10 @@
   /* grid-gap: 16px; */
 }
 
-.header,
 .main,
 .footer {
-  grid-column-start: 1;
-  grid-column-end: -1;
+  /* grid-column-start: 1;
+  grid-column-end: -1; */
   padding: 1em 0.5em;
 }
 
@@ -19,7 +18,14 @@
   margin: 0 auto;
 }
 
+.header {
+  padding: 0.5em;
+  font-size: 1.6em;
+  text-align: center;
+  background-color: rgb(227, 231, 240);
+}
+
 .footer {
+  background-color: rgb(227, 231, 240);
   text-align: right;
-  border-top: 1px solid #232332;
 }
