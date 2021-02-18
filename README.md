@@ -1,14 +1,3 @@
 # spotmaps-react
 
-App
-  Header
-  Body
-  Footer
-
-Body
-  Spotmaps
-
-Spotmap
-  Header
-  Body
-  Footer
+React version of the [2012 Spotmaps site](https://github.com/andywillis/spotmaps/). 
