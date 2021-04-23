@@ -13,8 +13,8 @@ const libraryTemp = require('./library/library.json').reduce((acc, c) => {
 
 const app = express();
 
-app.listen(4000, () => {
-  console.log('Server running on port 4000');
+app.listen(8000, () => {
+  console.log('Server running on port 8000');
 });
 
 function getData(filenames) {
