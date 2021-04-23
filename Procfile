@@ -1,1 +1,1 @@
-web: node src/server.js -port 8000
+web: port=8000 node src/server.js
