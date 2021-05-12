@@ -9,7 +9,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 module.exports = (env, argv) => ({
   entry: [
     '@babel/polyfill',
-    './src/index.jsx'
+    './src/index.js'
   ],
   output: {
     publicPath: '/',
