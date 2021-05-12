@@ -12,6 +12,7 @@ const libraryTemp = require('./library/library.json').reduce((acc, c) => {
 }, {});
 
 const app = express();
+app.use(express.static(path.join(__dirname, '../../build')));
 
 const port = process.env.PORT || 4000;
 
