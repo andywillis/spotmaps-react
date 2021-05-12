@@ -13,7 +13,7 @@
     "react-scripts": "4.0.2",
     "web-vitals": "^1.1.0"
   },
-  "main": "src/index.js",
+  "main": "src/index.jsx",
   "engines": {
     "node": "15.x"
   },
