@@ -12,7 +12,7 @@ const libraryTemp = require('./library/library.json').reduce((acc, c) => {
 }, {});
 
 const app = express();
-app.use(express.static(path.join(__dirname, '../../build')));
+app.use(express.static(path.join(__dirname, '../build')));
 
 const port = process.env.PORT || 4000;
 
@@ -46,8 +46,8 @@ app.get('/library', async (req, res) => {
   res.send(library);
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../../build', 'index.html'));
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
 });
 
 // app.get('/spotmap/:filename', async (req, res) => {
