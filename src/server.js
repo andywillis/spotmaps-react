@@ -45,6 +45,10 @@ app.get('/library', async (req, res) => {
   res.send(library);
 });
 
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../../build', 'index.html'));
+});
+
 // app.get('/spotmap/:filename', async (req, res) => {
 //   const filePath = `${__dirname}/../hex/`;
 //   const { filename } = req.params;
