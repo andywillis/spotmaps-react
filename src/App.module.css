@@ -1,5 +1,7 @@
 .article {
   min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   /* display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: repeat(auto-fit, minmax(384px, 1fr)); */
@@ -10,15 +12,18 @@
 .footer {
   /* grid-column-start: 1;
   grid-column-end: -1; */
-  padding: 1em 0.5em;
+  /* padding: 1em 0.5em; */
 }
 
 .main {
   width: 80%;
+  /* min-height: 100%; */
+  /* margin-bottom: -50px; */
   margin: 0 auto;
 }
 
 .header {
+  margin-bottom: 1em;
   padding: 0.5em;
   font-size: 1.6em;
   text-align: center;
@@ -28,4 +33,7 @@
 .footer {
   background-color: rgb(227, 231, 240);
   text-align: right;
+  margin-top: 1em;
+  padding: 0.5em;
+  height: 60px;
 }

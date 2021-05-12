@@ -1,4 +1,8 @@
 import React, { useContext, useEffect } from 'react';
+
+import { Switch, Route } from 'react-router-dom';
+
+import About from './components/About';
 import PageNumbers from './components/PageNumbers';
 import SpotmapList from './components/SpotmapList';
 
@@ -28,13 +32,20 @@ export default function App() {
         Spotmaps Redux
       </header>
       <main className={styles.main}>
-        <nav>
-          <PageNumbers />
-        </nav>
-        <SpotmapList />
-        <nav>
-          <PageNumbers />
-        </nav>
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+            <nav>
+              <PageNumbers />
+            </nav>
+            <SpotmapList />
+            <nav>
+              <PageNumbers />
+            </nav>
+          </Route>
+        </Switch>
       </main>
       <footer className={styles.footer}>
         &copy; Andy Willis 2021
