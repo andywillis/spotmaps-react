@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PageNumbers from './components/PageNumbers';
 import SpotmapList from './components/SpotmapList';
 
@@ -8,7 +8,6 @@ import styles from './App.module.css';
 
 export default function App() {
 
-  const mainRef = useRef(null);
   const { state, dispatch } = useContext(AppContext);
   const { library } = state;
 
@@ -21,26 +20,14 @@ export default function App() {
     getData();
   }, [dispatch]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (mainRef.current) {
-        const bound = mainRef.current.getBoundingClientRect();
-        dispatch({
-          type: 'setMainWidth',
-          payload: Math.floor(bound.width)
-        });
-      }
-    }, 1);
-  });
-
-  if (!Object.keys(library).length) return 'null';
+  if (!Object.keys(library).length) return <div />;
 
   return (
     <article className={styles.article}>
       <header className={styles.header}>
         Spotmaps Redux
       </header>
-      <main ref={mainRef} className={styles.main}>
+      <main className={styles.main}>
         <nav>
           <PageNumbers />
         </nav>

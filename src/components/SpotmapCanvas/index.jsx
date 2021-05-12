@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-// import AppContext from '../../store/context';
 
 import styles from './index.module.css';
 
-export default function SpotmapCanvas({ numberOfSpots, hexData, mainWidth }) {
+export default function SpotmapCanvas(props) {
+
+  const { numberOfSpots, hexData, mainWidth } = props;
 
   const [spotSize, setSpotSize] = useState(8);
+
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -13,6 +15,7 @@ export default function SpotmapCanvas({ numberOfSpots, hexData, mainWidth }) {
   }, [mainWidth]);
 
   useEffect(() => {
+
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
     context.fillStyle = '#676767';
@@ -24,6 +27,7 @@ export default function SpotmapCanvas({ numberOfSpots, hexData, mainWidth }) {
     let ypos = 0;
 
     for (let i = 0; i < hexData.length; i+=6) {
+
       const r = parseInt(hexData.slice(i, i+2), 16);
       const g = parseInt(hexData.slice(i+2, i+4), 16);
       const b = parseInt(hexData.slice(i+4, i+6), 16);
@@ -38,15 +42,17 @@ export default function SpotmapCanvas({ numberOfSpots, hexData, mainWidth }) {
       context.rect(xpos, ypos, spotSize, spotSize);
       context.fillStyle = `rgba(${r}, ${g}, ${b}, 255)`;
       context.fill();
-      context.lineWidth = 0.2;
+      context.lineWidth = spotSize > 4 ? 0.5 : 0.2;
       context.strokeStyle = 'rgba(0, 0, 0, 255)';
       context.stroke();
       xpos += spotSize;
       count++;
 
     }
+
   }, [numberOfSpots, hexData, spotSize]);
 
-  return <canvas className={styles.spotmap} ref={canvasRef} />;
-
+  return (
+    <canvas className={styles.spotmap} ref={canvasRef} />
+  );
 }

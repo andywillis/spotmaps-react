@@ -1,5 +1,6 @@
 export const initialState = {
   page: 1,
+  previousPage: 1,
   numberOfPages: 0,
   limit: 5,
   library: [],
@@ -24,16 +25,28 @@ export function reducer(state, action) {
     }
 
     case 'setPage': {
-      return { ...state, page: payload };
+      return {
+        ...state,
+        page: payload,
+        previousPage: state.page
+      };
     }
 
     case 'rwd': {
-      return { ...state, page: 1 };
+      return {
+        ...state,
+        page: 1,
+        previousPage: state.page
+      };
     }
 
     case 'ffd': {
       const { numberOfPages } = state;
-      return { ...state, page: numberOfPages };
+      return {
+        ...state,
+        page: numberOfPages,
+        previousPage: state.page
+      };
     }
 
     default: {
