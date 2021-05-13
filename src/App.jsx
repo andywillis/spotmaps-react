@@ -3,11 +3,7 @@ import React, { useContext, useEffect } from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom';
 
 import About from './components/About';
-import Directors from './components/Directors';
-import Writers from './components/Writers';
-import Years from './components/Years';
-import Titles from './components/Titles';
-import Genres from './components/Genres';
+import List from './components/List';
 
 import PageNumbers from './components/PageNumbers';
 import SpotmapList from './components/SpotmapList';
@@ -50,11 +46,11 @@ export default function App() {
       <main className={styles.main}>
         <Switch>
           <Route path="/about"><About /></Route>
-          <Route path="/directors"><Directors /></Route>
-          <Route path="/genres"><Genres /></Route>
-          <Route path="/titles"><Titles /></Route>
-          <Route path="/writers"><Writers /></Route>
-          <Route path="/years"><Years /></Route>
+          <Route path="/directors"><List type="directors" /></Route>
+          <Route path="/genres"><List type="genres" /></Route>
+          <Route path="/titles"><List type="titles" /></Route>
+          <Route path="/writers"><List type="writers" /></Route>
+          <Route path="/years"><List type="years" /></Route>
           <Route path="/">
             <nav>
               <PageNumbers />

@@ -3,18 +3,18 @@ export const initialState = {
   previousPage: 1,
   numberOfPages: 0,
   limit: 1,
-  genre: [],
-  writer: [],
-  director: [],
+  genres: [],
+  writers: [],
+  directors: [],
   library: [],
-  year: [],
+  years: [],
   titles: [],
   path: '/',
   mainWidth: 0
 };
 
 function getType(library, type) {
-  return [...new Set(library.map((obj) => obj[type]).flat())];
+  return [...new Set(library.map((obj) => obj[type]).flat())].sort();
 }
 
 function getTitles(library) {
@@ -41,18 +41,18 @@ export function reducer(state, action) {
       const { limit } = state;
       const numberOfSpotmaps = payload.length;
       const numberOfPages = Math.ceil(numberOfSpotmaps / limit);
-      const genre = getType(payload, 'genre');
-      const director = getType(payload, 'director');
-      const writer = getType(payload, 'writer');
-      const year = getType(payload, 'year');
+      const genres = getType(payload, 'genre');
+      const directors = getType(payload, 'director');
+      const writers = getType(payload, 'writer');
+      const years = getType(payload, 'year');
       const titles = getTitles(payload);
       return {
         ...state,
         numberOfPages,
-        genre,
-        director,
-        writer,
-        year,
+        genres,
+        directors,
+        writers,
+        years,
         titles,
         library: sortLibraryByType(payload)
       };
