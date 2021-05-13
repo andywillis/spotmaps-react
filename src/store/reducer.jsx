@@ -7,6 +7,7 @@ export const initialState = {
   writers: [],
   directors: [],
   library: [],
+  search: [],
   years: [],
   titles: [],
   path: '/',

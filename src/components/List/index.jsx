@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import AppContext from '../../store/context';
 
@@ -19,8 +19,9 @@ function formatItems(type, list) {
 }
 
 
-export default function List({ type }) {
+function List({ type, match }) {
 
+  console.log(match);
   const { state: { [type]: list } } = useContext(AppContext);
 
   return (
@@ -30,3 +31,5 @@ export default function List({ type }) {
   );
 
 }
+
+export default withRouter(List);

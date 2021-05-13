@@ -1,4 +1,5 @@
 import { useContext, useEffect, useRef } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import classNames from 'classnames';
 
@@ -9,10 +10,9 @@ import useWindowResize from '../../hooks/useWindowResize';
 
 import styles from './index.module.css';
 
-export default function SpotmapList() {
+function SpotmapList({ match }) {
 
   const windowSize = useWindowResize();
-
   const mainRef = useRef(null);
 
   const {
@@ -44,3 +44,5 @@ export default function SpotmapList() {
   );
 
 }
+
+export default withRouter(SpotmapList);

@@ -45,13 +45,14 @@ export default function App() {
       </header>
       <main className={styles.main}>
         <Switch>
-          <Route path="/about"><About /></Route>
-          <Route path="/directors"><List type="directors" /></Route>
-          <Route path="/genres"><List type="genres" /></Route>
-          <Route path="/titles"><List type="titles" /></Route>
-          <Route path="/writers"><List type="writers" /></Route>
-          <Route path="/years"><List type="years" /></Route>
-          <Route path="/">
+          <Route exact path="/about"><About /></Route>
+          <Route exact path="/directors/:name"><List type="directors" /></Route>
+          <Route exact path="/directors"><List type="directors" /></Route>
+          <Route exact path="/genres"><List type="genres" /></Route>
+          <Route exact path="/titles"><List type="titles" /></Route>
+          <Route exact path="/writers"><List type="writers" /></Route>
+          <Route exact path="/years"><List type="years" /></Route>
+          <Route exact path="/">
             <nav>
               <PageNumbers />
             </nav>
