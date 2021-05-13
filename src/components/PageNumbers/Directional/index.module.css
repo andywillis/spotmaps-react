@@ -1,14 +1,22 @@
-.FFD {
+.directional {
   margin-right: 0.2em;
   padding: 0.5em 1em;
-  background-color: rgb(215, 213, 233);
+  background-color: rgb(213, 233, 214);
 }
 
-.FFD:not(.disabled):hover {
+.directional:not(.disabled):hover {
   cursor: pointer;
-  background-color: rgb(115, 158, 219);
+  background-color: rgb(102, 156, 123);
 }
 
 .disabled {
   opacity: 30%;
+}
+
+.previous {
+  margin-right: 1em;
+}
+
+.next {
+  margin-left: 1em;
 }

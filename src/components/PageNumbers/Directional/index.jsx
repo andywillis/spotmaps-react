@@ -1,13 +1,26 @@
 import classnames from 'classnames';
 import styles from './index.module.css';
 
-export default function RWD({ type, page, numberOfPages }) {
+function isDisabled(type, page, numberOfPages) {
+  return ((type === 'rwd' || type === 'previous') && page === 1)
+  || ((type === 'ffd' || type === 'next') && page === numberOfPages);
+}
 
-  const classes = classnames([
-    styles.FFD,
-    (type === 'rwd' || type === 'previous') && page === 1 && styles.disabled,
-    (type === 'ffd' || type === 'next') && page === numberOfPages && styles.disabled
-  ]);
+export default function RWD(props) {
+
+  const { type, page, numberOfPages } = props;
+
+  const disabledStyle = (
+    ((type === 'rwd' || type === 'previous') && page === 1)
+    || ((type === 'ffd' || type === 'next') && page === numberOfPages)
+  );
+
+  const classes = classnames({
+    [styles.directional]: true,
+    [styles.previous]: type === 'previous',
+    [styles.next]: type === 'next',
+    [styles.disabled]: disabledStyle
+  });
 
   function getType(directionType) {
     switch (directionType) {
@@ -24,6 +37,7 @@ export default function RWD({ type, page, numberOfPages }) {
       className={classes}
       type="directional"
       data-id={type}
+      data-disabled={isDisabled(type, page, numberOfPages)}
     >{getType(type)}
     </div>
   );

@@ -41,7 +41,9 @@ export default function PageNumbers() {
 
   function handleClick(e) {
 
-    const { disabled, dataset: { number, id } } = e.target;
+    const { dataset: { disabled, number, id } } = e.target;
+
+    const isDisabled = disabled === 'true';
 
     if (id) {
       switch (id) {
@@ -50,19 +52,19 @@ export default function PageNumbers() {
           break;
         }
         case 'rwd': {
-          if (!disabled) dispatch({ type: 'rwd' });
+          if (!isDisabled) dispatch({ type: 'rwd' });
           break;
         }
         case 'previous': {
-          if (!disabled) dispatch({ type: 'previous' });
+          if (!isDisabled) dispatch({ type: 'previous' });
           break;
         }
         case 'next': {
-          if (!disabled) dispatch({ type: 'next' });
+          if (!isDisabled) dispatch({ type: 'next' });
           break;
         }
         case 'ffd': {
-          if (!disabled) dispatch({ type: 'ffd' });
+          if (!isDisabled) dispatch({ type: 'ffd' });
           break;
         }
         default: break;
