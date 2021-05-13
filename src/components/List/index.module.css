@@ -11,8 +11,12 @@
   color: black;
 }
 
-
 .link:hover {
   cursor:pointer;
   background-color: #dfdfdf;
+}
+
+.accordian {
+  height: 0;
+  visibility: hidden;
 }

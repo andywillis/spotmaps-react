@@ -9,7 +9,7 @@ function formatItems(type, list) {
   return list.map((item, i) => {
     const link = `/${type}/${item}`;
     return (
-      <Link className={styles.wrapper} to={link}>
+      <Link key={i} className={styles.wrapper} to={link}>
         <div className={styles.link}>
           {item}
         </div>

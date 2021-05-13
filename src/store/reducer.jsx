@@ -14,7 +14,8 @@ export const initialState = {
 };
 
 function getType(library, type) {
-  return [...new Set(library.map((obj) => obj[type]).flat())].sort();
+  const flat = library.map((obj) => obj[type]).flat();
+  return [...new Set(flat)].sort();
 }
 
 function getTitles(library) {
