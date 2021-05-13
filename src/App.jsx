@@ -37,7 +37,7 @@ export default function App() {
       <header className={styles.header}>
         <nav className={styles.submenu}>
           <ul>
-            <li><NavLink activeClassName={styles.active} to="/">Home</NavLink></li>
+            <li><NavLink activeClassName={styles.active} exact to="/">Home</NavLink></li>
             <li><NavLink activeClassName={styles.active} to="/directors">Directors</NavLink></li>
             <li><NavLink activeClassName={styles.active} to="/genres">Genres</NavLink></li>
             <li><NavLink activeClassName={styles.active} to="/titles">Titles</NavLink></li>
