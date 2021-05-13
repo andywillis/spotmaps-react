@@ -53,6 +53,14 @@ export default function PageNumbers() {
           if (!disabled) dispatch({ type: 'rwd' });
           break;
         }
+        case 'previous': {
+          if (!disabled) dispatch({ type: 'previous' });
+          break;
+        }
+        case 'next': {
+          if (!disabled) dispatch({ type: 'next' });
+          break;
+        }
         case 'ffd': {
           if (!disabled) dispatch({ type: 'ffd' });
           break;
@@ -67,7 +75,9 @@ export default function PageNumbers() {
     <>
       <div role="presentation" className={styles.pageNumbers} onClick={handleClick}>
         <Directional type="rwd" page={page} />
+        <Directional type="previous" page={page} numberOfPages={numberOfPages} />
         {numberOfPages > 1 ? buildPageList({ page, numberOfPages }) : null}
+        <Directional type="next" page={page} numberOfPages={numberOfPages} />
         <Directional type="ffd" page={page} numberOfPages={numberOfPages} />
       </div>
     </>

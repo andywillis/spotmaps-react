@@ -3,31 +3,29 @@ import { useContext, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 
 import SpotmapContainer from '../SpotmapContainer';
-
 import AppContext from '../../store/context';
+
+import useWindowResize from '../../hooks/useWindowResize';
 
 import styles from './index.module.css';
 
 export default function SpotmapList() {
 
+  const windowSize = useWindowResize();
+
   const mainRef = useRef(null);
 
   const {
-    state: { page, limit, library, mainWidth }, dispatch
+    state: { page, limit, library, mainWidth },
+    dispatch
   } = useContext(AppContext);
 
   const data = library.slice((page - 1) * limit, (page * limit));
 
   useEffect(() => {
-    setInterval(() => {
-      if (mainRef.current) {
-        const bound = mainRef.current.getBoundingClientRect();
-        if (bound.width !== mainWidth) {
-          dispatch({ type: 'setMainWidth', payload: Math.floor(bound.width) });
-        }
-      }
-    }, 1000);
-  }, []);
+    const bound = mainRef.current.getBoundingClientRect();
+    dispatch({ type: 'setMainWidth', payload: Math.floor(bound.width) });
+  }, [windowSize.width, dispatch]);
 
   const classes = classNames({
     [styles.spotmapList]: true,

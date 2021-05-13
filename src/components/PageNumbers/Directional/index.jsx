@@ -5,18 +5,26 @@ export default function RWD({ type, page, numberOfPages }) {
 
   const classes = classnames([
     styles.FFD,
-    type === 'rwd' && page === 1 && styles.disabled,
-    type === 'ffd' && page === numberOfPages && styles.disabled
+    (type === 'rwd' || type === 'previous') && page === 1 && styles.disabled,
+    (type === 'ffd' || type === 'next') && page === numberOfPages && styles.disabled
   ]);
 
-  const content = type === 'rwd' ? '<<' : '>>';
+  function getType(directionType) {
+    switch (directionType) {
+      case 'rwd': return '<<';
+      case 'ffd': return '>>';
+      case 'previous': return '<';
+      case 'next':
+      default: return '>';
+    }
+  }
 
   return (
     <div
       className={classes}
       type="directional"
       data-id={type}
-    >{content}
+    >{getType(type)}
     </div>
   );
 }

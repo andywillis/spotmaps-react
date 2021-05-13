@@ -8,23 +8,22 @@ export const initialState = {
   director: [],
   library: [],
   year: [],
+  titles: [],
   mainWidth: 0
 };
 
-function getGenre(library) {
-  return [...new Set(library.map(({ genre }) => genre).flat())];
+function getType(library, type) {
+  return [...new Set(library.map((obj) => obj[type]).flat())];
 }
 
-function getDirector(library) {
-  return [...new Set(library.map(({ director }) => director).flat())];
+function getTitles(library) {
+  return library.map(({ title }) => title).sort();
 }
 
-function getWriter(library) {
-  return [...new Set(library.map(({ writer }) => writer).flat())];
-}
-
-function getYear(library) {
-  return [...new Set(library.map(({ year }) => year).flat())];
+function sortLibraryByType(library, type = 'title') {
+  return library.sort((a, b) => {
+    return a[type].toLowerCase() > b[type].toLowerCase();
+  });
 }
 
 export function reducer(state, action) {
@@ -37,10 +36,11 @@ export function reducer(state, action) {
       const { limit } = state;
       const numberOfSpotmaps = payload.length;
       const numberOfPages = Math.ceil(numberOfSpotmaps / limit);
-      const genre = getGenre(payload);
-      const director = getDirector(payload);
-      const writer = getWriter(payload);
-      const year = getYear(payload);
+      const genre = getType(payload, 'genre');
+      const director = getType(payload, 'director');
+      const writer = getType(payload, 'writer');
+      const year = getType(payload, 'year');
+      const titles = getTitles(payload);
       return {
         ...state,
         numberOfPages,
@@ -48,7 +48,8 @@ export function reducer(state, action) {
         director,
         writer,
         year,
-        library: payload
+        titles,
+        library: sortLibraryByType(payload)
       };
     }
 
@@ -68,6 +69,22 @@ export function reducer(state, action) {
       return {
         ...state,
         page: 1,
+        previousPage: state.page
+      };
+    }
+
+    case 'previous': {
+      return {
+        ...state,
+        page: state.page - 1,
+        previousPage: state.page
+      };
+    }
+
+    case 'next': {
+      return {
+        ...state,
+        page: state.page + 1,
         previousPage: state.page
       };
     }
