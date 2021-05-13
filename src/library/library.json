@@ -968,17 +968,6 @@
 		"year": 2011
 	},
 	{
-		"display": false,
-		"title": "Hell on Earth",
-		"numberOfSpots": 3120,
-		"filename": "Hell on Earth.jpg",
-		"id": 90,
-		"director": ["Joyce, Paul"],
-		"genre": ["Documentary"],
-		"writer": ["n/a"],
-		"year": 2002
-	},
-	{
 		"display": true,
 		"title": "Hellgate",
 		"numberOfSpots": 5880,
@@ -1978,17 +1967,6 @@
 		"genre": ["Comedy", "Crime", "Romance"],
 		"writer": ["Fox, Robbie"],
 		"year": 1993
-	},
-	{
-		"display": false,
-		"title": "Something From Nothing - The Art Of Rap",
-		"numberOfSpots": 7020,
-		"filename": "Something From Nothing - The Art Of Rap.jpg",
-		"id": 185,
-		"director": ["Ice-T", "Baybutt, Andy"],
-		"genre": ["Documentary"],
-		"writer": ["n/a"],
-		"year": 2012
 	},
 	{
 		"display": true,
