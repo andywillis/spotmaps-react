@@ -9,6 +9,8 @@ function formatItems(type, list) {
   return list.map((item, i) => {
     const link = `/${type}/${item}`;
     return (
+
+      // eslint-disable-next-line
       <Link key={i} className={styles.wrapper} to={link}>
         <div className={styles.link}>
           {item}
