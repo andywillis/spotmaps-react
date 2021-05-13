@@ -9,6 +9,7 @@ export const initialState = {
   library: [],
   year: [],
   titles: [],
+  path: '/',
   mainWidth: 0
 };
 
@@ -31,6 +32,10 @@ export function reducer(state, action) {
   const { type, payload } = action;
 
   switch (type) {
+
+    case 'updatePath': {
+      return { ...state, path: payload };
+    }
 
     case 'saveLibrary': {
       const { limit } = state;

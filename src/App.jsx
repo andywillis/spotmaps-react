@@ -1,8 +1,14 @@
 import React, { useContext, useEffect } from 'react';
 
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, NavLink } from 'react-router-dom';
 
 import About from './components/About';
+import Directors from './components/Directors';
+import Writers from './components/Writers';
+import Years from './components/Years';
+import Titles from './components/Titles';
+import Genres from './components/Genres';
+
 import PageNumbers from './components/PageNumbers';
 import SpotmapList from './components/SpotmapList';
 
@@ -29,13 +35,26 @@ export default function App() {
   return (
     <article className={styles.article}>
       <header className={styles.header}>
-        Spotmaps Redux
+        <nav className={styles.submenu}>
+          <ul>
+            <li><NavLink activeClassName={styles.active} to="/">Home</NavLink></li>
+            <li><NavLink activeClassName={styles.active} to="/directors">Directors</NavLink></li>
+            <li><NavLink activeClassName={styles.active} to="/genres">Genres</NavLink></li>
+            <li><NavLink activeClassName={styles.active} to="/titles">Titles</NavLink></li>
+            <li><NavLink activeClassName={styles.active} to="/writers">Writers</NavLink></li>
+            <li><NavLink activeClassName={styles.active} to="/years">Years</NavLink></li>
+            <li><NavLink activeClassName={styles.active} to="/about">About</NavLink></li>
+          </ul>
+        </nav>
       </header>
       <main className={styles.main}>
         <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
+          <Route path="/about"><About /></Route>
+          <Route path="/directors"><Directors /></Route>
+          <Route path="/genres"><Genres /></Route>
+          <Route path="/titles"><Titles /></Route>
+          <Route path="/writers"><Writers /></Route>
+          <Route path="/years"><Years /></Route>
           <Route path="/">
             <nav>
               <PageNumbers />

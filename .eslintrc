@@ -19,6 +19,7 @@
     "no-plusplus": 0,
     "arrow-body-style": 0,
     "space-infix-ops": 0,
+    "no-multiple-empty-lines": 0,
     "comma-dangle": ["error", "never"],
     "react/prop-types": 0,
     "react/jsx-one-expression-per-line": 0,

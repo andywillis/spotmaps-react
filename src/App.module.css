@@ -37,3 +37,26 @@
   padding: 0.5em;
   height: 60px;
 }
+
+.submenu ul {
+  text-decoration: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.7em;
+}
+
+.submenu li {
+  display: inline;
+  margin-right: 1em;
+}
+
+.submenu li a {
+  text-decoration: none;
+  color: black;
+}
+
+.submenu li .active {
+  text-decoration: none;
+  font-weight: 700;
+}
