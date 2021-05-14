@@ -21,7 +21,10 @@ export default function About() {
       <h2>Coverage</h2>
       <ul>
         <li>
-          <a href="http://www.fastcodesign.com/1671572/infographic-the-colors-from-your-favorite-movies-mapped-to-7200-pixels">Fastcodesign Infographic Of The Day</a>
+          <a href="https://www.theverge.com/2013/1/15/3878234/andy-willis-spotmaps-turns-movies-into-color-maps">The Verge</a>
+        </li>
+        <li>
+          <a href="https://www.fastcompany.com/90185487/infographic-the-colors-from-your-favorite-movies-mapped-to-7200-pixels">Fast Company</a>
         </li>
         <li>
           <a href="http://gizmodo.com/5972740/the-color-of-movies-visualized">Gizmodo</a>
