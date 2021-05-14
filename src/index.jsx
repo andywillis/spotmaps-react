@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+import ScrollToTop from './scrollToTop';
 import AppProvider from './store/provider';
 import App from './App';
 
@@ -12,7 +13,9 @@ ReactDOM.render(
   <StrictMode>
     <AppProvider>
       <Router>
-        <App />
+        <ScrollToTop>
+          <App />
+        </ScrollToTop>
       </Router>
     </AppProvider>
   </StrictMode>,

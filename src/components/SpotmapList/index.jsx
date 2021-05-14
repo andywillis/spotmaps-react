@@ -28,11 +28,11 @@ function SpotmapList(props) {
   const { match: { params: { title } } } = props;
   const data = wrangleData({ library, page, limit, title });
 
-  useEffect(() => {
-    if (mainRef && mainRef.current) {
-      mainRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (mainRef && mainRef.current) {
+  //     mainRef.current.scrollIntoView({ behavior: 'smooth' });
+  //   }
+  // }, []);
 
   useEffect(() => {
     const bound = mainRef.current.getBoundingClientRect();
