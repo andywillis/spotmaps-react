@@ -4,12 +4,29 @@ export default function About() {
   return (
     <div className={styles.wrapper}>
       <h2>Project</h2>
-      <p>Spotmaps, based on Brendan Dawes' <a href="http://brendandawes.com/projects/cinemaredux">Cinema Redux</a>, is an on-going project to map the colour narratives of different films.</p>
-      <p>Films are processed through a Python/OpenCV pipeline: each frame's colour is sampled, and  a spot of average colour is produced from the combination of one second's frames.</p>
-      <p>Spots are laid out 60 per line to represent one minute of film time. The length of the image represents the number of minutes in the film.</p>
-      <p>A 24-colour Adobe swatch file in ASE format and a hex RGB colour file are available to download for each spotmap.</p>
+      <p>Spotmaps, based on Brendan Dawes&apos;&nbsp;
+        <a href="http://brendandawes.com/projects/cinemaredux">Cinema Redux</a>,
+        is an on-going project to map the colour narratives of different films.
+      </p>
+      <p>Films are processed through a Python/OpenCV pipeline: each frame&apos;s colour is sampled,
+        and  a spot of average
+        colour is produced from the combination of one second&apos;s frames.
+      </p>
+      <p>Spots are laid out 60 per line to represent one minute of film time. The
+        length of the image represents the number of minutes in the film.
+      </p>
+      <p>A 24-colour Adobe swatch file in ASE format and a hex RGB colour file are available to
+        download for each spotmap.
+      </p>
       <h2>Coverage</h2>
-      <ul><li><a href="http://www.fastcodesign.com/1671572/infographic-the-colors-from-your-favorite-movies-mapped-to-7200-pixels">Fastcodesign Infographic Of The Day</a></li><li><a href="http://gizmodo.com/5972740/the-color-of-movies-visualized">Gizmodo</a></li></ul>
+      <ul>
+        <li>
+          <a href="http://www.fastcodesign.com/1671572/infographic-the-colors-from-your-favorite-movies-mapped-to-7200-pixels">Fastcodesign Infographic Of The Day</a>
+        </li>
+        <li>
+          <a href="http://gizmodo.com/5972740/the-color-of-movies-visualized">Gizmodo</a>
+        </li>
+      </ul>
     </div>
   );
 }
