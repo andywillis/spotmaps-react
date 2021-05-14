@@ -56,6 +56,10 @@
   color: black;
 }
 
+.submenu a:not(.active):hover {
+  color: green;
+}
+
 .submenu li .active {
   text-decoration: none;
   font-weight: 700;
