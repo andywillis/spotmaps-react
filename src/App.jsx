@@ -12,6 +12,7 @@ import AppContext from './store/context';
 
 import styles from './App.module.css';
 
+
 export default function App() {
 
   const { state, dispatch } = useContext(AppContext);
@@ -47,11 +48,12 @@ export default function App() {
         <Switch>
           <Route exact path="/about"><About /></Route>
           <Route exact path="/directors/:name"><List type="directors" /></Route>
-          <Route exact path="/directors"><List type="directors" /></Route>
-          <Route exact path="/genres"><List type="genres" /></Route>
-          <Route exact path="/titles"><List type="titles" /></Route>
-          <Route exact path="/writers"><List type="writers" /></Route>
-          <Route exact path="/years"><List type="years" /></Route>
+          <Route exact path="/directors"><List group="directors" type="director" /></Route>
+          <Route exact path="/genres"><List group="genres" type="genre" /></Route>
+          <Route exact path="/titles"><List group="titles" type="title" /></Route>
+          <Route exact path="/writers"><List group="writers" type="writer" /></Route>
+          <Route exact path="/years"><List group="years" type="year" /></Route>
+          <Route exact path="/title/:title"><SpotmapList /></Route>
           <Route exact path="/">
             <nav>
               <PageNumbers />

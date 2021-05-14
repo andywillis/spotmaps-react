@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import AppContext from '../../store/context';
 
@@ -9,7 +9,7 @@ function formatItems(type, list) {
   return list.map((value) => {
     const link = `/${type}/${value}`;
     return (
-      <Link className={styles.wrapper} to={link}>
+      <Link key={value} className={styles.wrapper} to={link}>
         <div className={styles.link}>
           {value}
         </div>
@@ -19,10 +19,9 @@ function formatItems(type, list) {
 }
 
 
-function List({ type, match }) {
+function List({ type, group }) {
 
-  console.log(match);
-  const { state: { [type]: list } } = useContext(AppContext);
+  const { state: { [group]: list } } = useContext(AppContext);
 
   return (
     <div className={styles.wrapper}>
@@ -32,4 +31,4 @@ function List({ type, match }) {
 
 }
 
-export default withRouter(List);
+export default List;

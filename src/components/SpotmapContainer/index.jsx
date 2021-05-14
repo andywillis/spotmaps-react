@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import Details from '../Details';
 import SpotmapCanvas from '../SpotmapCanvas';
@@ -7,10 +8,10 @@ import AppContext from '../../store/context';
 
 import styles from './index.module.css';
 
-export default function SpotmapContainer({ data }) {
+function SpotmapContainer(props) {
 
   const { state: { mainWidth } } = useContext(AppContext);
-  const { hexData, numberOfSpots, ...details } = data;
+  const { data: { hexData, numberOfSpots, ...details } } = props;
 
   return (
     <section className={styles.spotmapContainer} style={{ width: mainWidth }}>
@@ -23,3 +24,5 @@ export default function SpotmapContainer({ data }) {
     </section>
   );
 }
+
+export default withRouter(SpotmapContainer);

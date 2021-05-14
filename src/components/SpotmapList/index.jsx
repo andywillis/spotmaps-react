@@ -10,7 +10,12 @@ import useWindowResize from '../../hooks/useWindowResize';
 
 import styles from './index.module.css';
 
-function SpotmapList({ match }) {
+function wrangleData({ library, page, limit, title }) {
+  if (title) return library.filter((spotmap) => spotmap.title === title);
+  return library.slice((page - 1) * limit, (page * limit));
+}
+
+function SpotmapList(props) {
 
   const windowSize = useWindowResize();
   const mainRef = useRef(null);
@@ -20,7 +25,14 @@ function SpotmapList({ match }) {
     dispatch
   } = useContext(AppContext);
 
-  const data = library.slice((page - 1) * limit, (page * limit));
+  const { match: { params: { title } } } = props;
+  const data = wrangleData({ library, page, limit, title });
+
+  useEffect(() => {
+    if (mainRef && mainRef.current) {
+      mainRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
 
   useEffect(() => {
     const bound = mainRef.current.getBoundingClientRect();
@@ -35,11 +47,10 @@ function SpotmapList({ match }) {
 
   return (
     <div ref={mainRef} className={classes}>
-      {data.map((spotmapData, i) => {
-
-        // eslint-disable-next-line react/no-array-index-key
-        return <SpotmapContainer key={i} data={spotmapData} />;
-      })};
+      {data.map((spotmapData) => {
+        const { id } = spotmapData;
+        return <SpotmapContainer key={id} data={spotmapData} />;
+      })}
     </div>
   );
 
