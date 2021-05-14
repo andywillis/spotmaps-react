@@ -1,12 +1,15 @@
-import { StrictMode } from 'react';
+import { lazy, Suspense, StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import ScrollToTop from './scrollToTop';
 import AppProvider from './store/provider';
-import App from './App';
+import Spinner from './components/Spinner';
 
 import './index.css';
+
+const App = lazy(() => import('./App'));
+
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -14,7 +17,9 @@ ReactDOM.render(
     <AppProvider>
       <Router>
         <ScrollToTop>
-          <App />
+          <Suspense fallback={<Spinner />}>
+            <App />
+          </Suspense>
         </ScrollToTop>
       </Router>
     </AppProvider>
