@@ -1,0 +1,42 @@
+{
+  "name": "vite-react-express-boilerplate",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "concurrently \"yarn run serverdev\" \"yarn run clientdev\"",
+    "build": "yarn run build -w client",
+    "clientdev": "yarn workspace client run dev",
+    "serverdev": "yarn workspace server run dev",
+    "databasedev": "yarn workspace database run dev",
+    "heroku-postbuild": "yarn run build",
+    "testui": "npx vitest watch --ui --threads false",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "workspaces": [
+    "./packages/*"
+  ],
+  "dependencies": {
+    "@vitejs/plugin-react": "^1.3.2",
+    "concurrently": "^7.1.0",
+    "dotenv": "^16.0.1",
+    "draftlog": "^1.0.13",
+    "express": "^4.17.1",
+    "fs.promises.exists": "^1.1.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "6"
+  },
+  "devDependencies": {
+    "@vitest/ui": "^0.16.0",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb": "^19.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.27.0",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "nodemon": "^2.0.15",
+    "vite": "^2.9.5",
+    "vitest": "^0.16.0"
+  }
+}

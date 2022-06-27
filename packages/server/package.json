@@ -1,0 +1,10 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --experimental-specifier-resolution=node --experimental-json-modules index"
+  },
+  "license": "CC-BY-NC-SA-4.0"
+}
