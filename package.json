@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "concurrently \"yarn run serverdev\" \"yarn run clientdev\"",
-    "build": "yarn run build -w client",
+    "build": "yarn workspace client run build",
     "clientdev": "yarn workspace client run dev",
     "serverdev": "yarn workspace server run dev",
     "databasedev": "yarn workspace database run dev",
