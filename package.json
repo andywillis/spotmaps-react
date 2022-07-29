@@ -1,7 +1,7 @@
 {
-  "name": "vite-react-express-boilerplate",
+  "name": "spotmaps-react-II",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": "concurrently \"pnpm run serverdev\" \"pnpm run clientdev\"",
     "build": "pnpm workspace client run build",
@@ -17,6 +17,9 @@
     "concurrently": "^7.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/eslint-parser": "^7.18.2",
+    "@babel/plugin-syntax-import-assertions": "^7.18.6",
     "@vitest/ui": "^0.16.0",
     "eslint": "^7.11.0",
     "eslint-config-airbnb": "^19.0.0",

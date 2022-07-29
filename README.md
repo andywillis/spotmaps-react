@@ -1,18 +1,8 @@
-# vite-react-express-boilerplate
+# spotmaps-react-II
 
 ## Introduction
 
-A vite/React/Express boilerplate that can be deployed to Heroku. It uses yarn workspacing.
-
-- Key dependencies
-
-	- vite/vitest
-	- Express HTTPS server - you'll need to generate your pem files (details are in the text file in `packages/server/auth`)
-	- React 17.0.2
-	- react-router
-
-- Key development dependencies
-	- AirBnb eslint/react linting libraries
+Spotmaps with React upgraded to a new workflow.
 
 ## Installation
 

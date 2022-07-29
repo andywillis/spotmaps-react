@@ -1,0 +1,22 @@
+.link {
+  padding: 0.5em;
+  margin: 0.5em;
+  background-color: #efefef;
+  text-decoration: none;
+  color: black;
+}
+
+.wrapper {
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover {
+  cursor:pointer;
+  background-color: #dfdfdf;
+}
+
+.accordian {
+  height: 0;
+  visibility: hidden;
+}

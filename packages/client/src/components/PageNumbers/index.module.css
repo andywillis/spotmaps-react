@@ -1,0 +1,5 @@
+.pageNumbers {
+  margin: 1em 0em;
+  display: flex;
+  justify-content: center;
+}

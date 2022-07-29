@@ -7,16 +7,16 @@ import { splitVendorChunkPlugin } from 'vite'
 
 export default defineConfig({
   plugins: [ react(), compress(), splitVendorChunkPlugin() ],
-  // server: {
-  //   proxy: {
-  //     '/message/add': {
-  //       target: 'https://localhost:4000',
-  //       secure: false,
-  //       changeOrigin: true
-  //     }
-  //   }
-  // },
+  server: {
+    proxy: {
+      '/library': {
+        target: 'https://localhost:4000',
+        secure: false,
+        changeOrigin: true
+      }
+    }
+  },
   build: {
-    outDir: 'build'
+    outDir: '../build'
   }
 });

@@ -1,3 +1,3 @@
-#### Description
+#### spotmaps-react-II
 
-https express server
+Now with added `pnpm`.

@@ -1,11 +1,26 @@
-import React from 'react'
+import { lazy, Suspense, StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import App from './App'
-import './index.css'
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import ScrollToTop from './scrollToTop';
+import AppProvider from './store/provider';
+import Spinner from './components/Spinner';
+
+import './index.css';
+
+const App = lazy(() => import('./App'));
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <StrictMode>
+    <AppProvider>
+      <Router>
+        <ScrollToTop>
+          <Suspense fallback={<Spinner />}>
+            <App />
+          </Suspense>
+        </ScrollToTop>
+      </Router>
+    </AppProvider>
+  </StrictMode>,
   document.getElementById('root')
 );

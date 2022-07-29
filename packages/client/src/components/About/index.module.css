@@ -1,0 +1,30 @@
+.wrapper h2,
+.wrapper p {
+  margin-bottom: 0.4em;
+}
+
+.wrapper h2:not(:first-child) {
+  margin-top: 0.6em;
+}
+
+.wrapper ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wrapper li {
+  display: inline;
+  margin-right: 1em;
+  background-color: #efefef;
+  padding: 0.3em;
+}
+
+.wrapper li a {
+  text-decoration: none;
+  color: black
+}
+
+.wrapper li a:hover {
+  color: green;
+}

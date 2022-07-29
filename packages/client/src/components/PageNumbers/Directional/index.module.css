@@ -1,0 +1,22 @@
+.directional {
+  margin-right: 0.2em;
+  padding: 0.5em 1em;
+  background-color: rgb(213, 233, 214);
+}
+
+.directional:not(.disabled):hover {
+  cursor: pointer;
+  background-color: rgb(102, 156, 123);
+}
+
+.disabled {
+  opacity: 0.4;
+}
+
+.previous {
+  margin-right: 1em;
+}
+
+.next {
+  margin-left: 1em;
+}
