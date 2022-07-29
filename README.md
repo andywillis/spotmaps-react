@@ -16,13 +16,13 @@ A vite/React/Express boilerplate that can be deployed to Heroku. It uses yarn wo
 
 ## Installation
 
-- Install yarn
+- Install pnpm
 - Clone the repo
 - Rename the cloned repo
 - `cd` to the folder
 
-`yarn`
-`yarn run dev`
+`pnpm install`
+`pnpm run dev`
 
 - Update the `.code.workspace`, `package.json` files to match your app namefs
 - Update the `packages/client/.env` file to match your site name
