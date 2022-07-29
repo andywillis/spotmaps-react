@@ -1,7 +1,7 @@
 import fs from 'fs';
-import dirname from '../../helpers/dirname';
+import rootname from '../../rootname';
 
-const key = fs.readFileSync(`${dirname}/../auth/key.pem`);
-const cert = fs.readFileSync(`${dirname}/../auth/cert.pem`);
+const key = fs.readFileSync(`${rootname}/auth/key.pem`);
+const cert = fs.readFileSync(`${rootname}/auth/cert.pem`);
 
 export default { key, cert };

@@ -4,8 +4,15 @@
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended"
   ],
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": "latest"
+    "ecmaVersion": "latest",
+    "requireConfigFile": false,
+    "babelOptions": {
+      "plugins": [
+        "@babel/plugin-syntax-import-assertions"
+      ]
+    }
   },
   "globals": {
     "React": true
