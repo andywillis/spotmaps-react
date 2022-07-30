@@ -4,16 +4,14 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "concurrently \"pnpm run serverdev\" \"pnpm run clientdev\"",
-    "build": "pnpm workspace client run build",
+    "build": "pnpm --filter client run build",
     "clientdev": "pnpm --filter client run dev",
     "serverdev": "pnpm --filter server run dev",
     "databasedev": "pnpm --filter database run dev",
     "heroku-postbuild": "pnpm run build",
     "testui": "npx vitest watch --ui --threads false",
     "test": "vitest",
-    "lintclient": "eslint --ext js,jsx packages/client/src",
-    "lintserver": "eslint packages/server",
-    "lint": "pnpm run lintclient && pnpm run lintserver",
+    "lint": "pnpm --filter client run lint && pnpm --filter server run lint",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
