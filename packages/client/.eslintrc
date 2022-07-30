@@ -4,13 +4,8 @@
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended"
   ],
-  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": "latest",
-    "requireConfigFile": false,
-    "babelOptions": {
-      "presets": ["@babel/preset-react"]
-    }
+    "ecmaVersion": "latest"
   },
   "globals": {
     "React": true
