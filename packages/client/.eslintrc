@@ -9,10 +9,7 @@
     "ecmaVersion": "latest",
     "requireConfigFile": false,
     "babelOptions": {
-      "presets": ["@babel/preset-react"],
-      "plugins": [
-        "@babel/plugin-syntax-import-assertions"
-      ]
+      "presets": ["@babel/preset-react"]
     }
   },
   "globals": {
@@ -25,7 +22,6 @@
   "env": {
     "browser": true
   },
-  "ignorePatterns": ["node_modules"],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": [

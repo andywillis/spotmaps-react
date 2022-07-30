@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs/promises';
 
-import rootname from '../rootname';
+import rootname from '../../rootname';
 
 export default function getHexData(filenames) {
 

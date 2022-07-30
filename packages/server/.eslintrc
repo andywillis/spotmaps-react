@@ -1,10 +1,12 @@
 {
+  "extends": [
+    "plugin:import/recommended"
+  ],
   "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "requireConfigFile": false,
     "babelOptions": {
-      "presets": ["@babel/preset-react"],
       "plugins": [
         "@babel/plugin-syntax-import-assertions"
       ]

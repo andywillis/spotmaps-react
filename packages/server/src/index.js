@@ -3,7 +3,7 @@ import { app, port, server } from './service/express';
 
 import routes from './routes/index';
 
-import library from './data/library' assert { type: 'json' };
+import library from '../data/library' assert { type: 'json' };
 
 app.get('/library', await routes.library(library));
 app.get('*', routes.root());
