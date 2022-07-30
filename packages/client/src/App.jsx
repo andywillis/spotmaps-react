@@ -1,12 +1,14 @@
-import React, { useContext, useEffect } from 'react';
+import React, { lazy, Suspense, useContext, useEffect } from 'react';
 
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Main from './components/Main';
+import Spinner from './components/Spinner';
 
 import AppContext from './store/context';
 
 import styles from './App.module.css';
+
+const Main = lazy(() => import('./components/Main'));
 
 export default function App() {
 
@@ -27,7 +29,9 @@ export default function App() {
   return (
     <article className={styles.article}>
       <Header />
-      <Main />
+      <Suspense fallback={<Spinner />}>
+        <Main />
+      </Suspense>
       <Footer />
     </article>
   );
