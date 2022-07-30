@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 function ScrollToTop({ children, location }) {
 
-  const [state, setState] = useState();
+  const [ state, setState ] = useState();
   const { pathname } = location;
 
   useEffect(() => {
@@ -11,9 +11,10 @@ function ScrollToTop({ children, location }) {
       window.scrollTo(0, 0);
       setState(pathname);
     }
-  }, [pathname, state]);
+  }, [ pathname, state ]);
 
   return children;
+
 }
 
 export default withRouter(ScrollToTop);

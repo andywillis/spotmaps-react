@@ -1,4 +1,4 @@
-import compileLibrary from '../helpers/app/compileLibrary';
+import compileLibrary from '../helpers/compileLibrary';
 
 export default async function library(library) {
 

@@ -2,11 +2,11 @@ import { lazy, Suspense, StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import ScrollToTop from './scrollToTop';
+import ScrollToTop from './helpers/scrollToTop';
 import AppProvider from './store/provider';
 import Spinner from './components/Spinner';
 
-import './index.css';
+import './main.css';
 
 const App = lazy(() => import('./App'));
 
