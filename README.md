@@ -14,9 +14,6 @@ Spotmaps with React upgraded to a new workflow.
 `pnpm install`
 `pnpm run dev`
 
-- Update the `.code.workspace`, `package.json` files to match your app namefs
-- Update the `packages/client/.env` file to match your site name
-
 ## Licence
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
