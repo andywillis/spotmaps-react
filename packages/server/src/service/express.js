@@ -4,7 +4,7 @@ import https from 'https';
 import http from 'http';
 import compression from 'compression';
 
-import rootname from '../rootname';
+import rootname from '../../rootname';
 import serverOptions from './config/server';
 
 const app = express();

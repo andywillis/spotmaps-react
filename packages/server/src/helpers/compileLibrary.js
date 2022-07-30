@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 
-import rootname from '../rootname';
+import rootname from '../../rootname';
 
 import libraryArrayToObject from './libraryArrayToObject';
 import getHexData from './getHexData';

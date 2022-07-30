@@ -63,7 +63,7 @@ export default function App() {
         </Switch>
       </main>
       <footer className={styles.footer}>
-        &copy; Andy Willis 2022
+        &copy; Andy Willis {new Date().getFullYear()}
       </footer>
     </article>
   );
