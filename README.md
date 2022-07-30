@@ -6,7 +6,7 @@ Spotmaps with React upgraded to a new workflow.
 
 ## Installation
 
-- Install pnpm
+- [Install pnpm](https://pnpm.io/installation)
 - Clone the repo
 - Rename the cloned repo
 - `cd` to the folder
