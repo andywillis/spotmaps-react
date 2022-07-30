@@ -9,7 +9,7 @@ import serverOptions from './config/server';
 
 const app = express();
 
-app.use(express.static(path.join(rootname, '../../client/build')));
+app.use(express.static(path.join(rootname, '../client/build')));
 app.use(express.json());
 app.use(compression());
 

@@ -1,5 +1,9 @@
-export default function followings() {
+import path from 'path';
+
+import rootname from '../../rootname';
+
+export default function root() {
   return function (req, res) {
-    res.json({ status: 'success' });
+    res.sendFile(path.join(rootname, '../client/build', 'index.html'));
   };
 }
