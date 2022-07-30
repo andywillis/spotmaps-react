@@ -16,7 +16,7 @@ export const initialState = {
 
 function getType(library, type) {
   const flat = library.map((obj) => obj[type]).flat();
-  const arr = [...new Set(flat)].sort();
+  const arr = [ ...new Set(flat) ].sort();
   return arr;
 }
 

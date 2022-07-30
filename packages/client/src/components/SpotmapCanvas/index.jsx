@@ -6,13 +6,13 @@ export default function SpotmapCanvas(props) {
 
   const { numberOfSpots, hexData, mainWidth } = props;
 
-  const [spotSize, setSpotSize] = useState(8);
+  const [ spotSize, setSpotSize ] = useState(8);
 
   const canvasRef = useRef(null);
 
   useEffect(() => {
     setSpotSize(mainWidth < 360 ? 4 : Math.floor(mainWidth / 60));
-  }, [mainWidth]);
+  }, [ mainWidth ]);
 
   useEffect(() => {
 
@@ -26,11 +26,11 @@ export default function SpotmapCanvas(props) {
     let xpos = 0;
     let ypos = 0;
 
-    for (let i = 0; i < hexData.length; i+=6) {
+    for (let i = 0; i < hexData.length; i += 6) {
 
-      const r = parseInt(hexData.slice(i, i+2), 16);
-      const g = parseInt(hexData.slice(i+2, i+4), 16);
-      const b = parseInt(hexData.slice(i+4, i+6), 16);
+      const r = parseInt(hexData.slice(i, i + 2), 16);
+      const g = parseInt(hexData.slice(i + 2, i + 4), 16);
+      const b = parseInt(hexData.slice(i + 4, i + 6), 16);
 
       if (count % 60 === 0 && count !== 0) {
         ypos += spotSize;
@@ -50,7 +50,7 @@ export default function SpotmapCanvas(props) {
 
     }
 
-  }, [numberOfSpots, hexData, spotSize]);
+  }, [ numberOfSpots, hexData, spotSize ]);
 
   return (
     <canvas className={styles.spotmap} ref={canvasRef} />

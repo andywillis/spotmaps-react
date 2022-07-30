@@ -17,7 +17,7 @@ function convertValue(path, value) {
 
 function wrangleData({ library, page, limit, path, value }) {
   if (path && value) {
-    if (['director', 'genre', 'writer'].includes(path)) {
+    if ([ 'director', 'genre', 'writer' ].includes(path)) {
       return library.filter((spotmap) => {
         return spotmap[path].includes(value);
       });
@@ -43,16 +43,10 @@ function SpotmapList(props) {
 
   const data = wrangleData({ library, page, limit, path, value });
 
-  // useEffect(() => {
-  //   if (mainRef && mainRef.current) {
-  //     mainRef.current.scrollIntoView({ behavior: 'smooth' });
-  //   }
-  // }, []);
-
   useEffect(() => {
     const bound = mainRef.current.getBoundingClientRect();
     dispatch({ type: 'setMainWidth', payload: Math.floor(bound.width) });
-  }, [windowSize.width, dispatch]);
+  }, [ windowSize.width, dispatch ]);
 
   const classes = classNames({
     [styles.spotmapList]: true,

@@ -4,8 +4,8 @@ import { initialState, reducer } from './reducer';
 
 export default function AppProvider({ children }) {
 
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const value = useMemo(() => ({ state, dispatch }), [state]);
+  const [ state, dispatch ] = useReducer(reducer, initialState);
+  const value = useMemo(() => ({ state, dispatch }), [ state ]);
 
   return (
     <AppContext.Provider value={value}>

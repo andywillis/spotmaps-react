@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 export default function useHasWindowResized() {
   // Initialize state with undefined width/height so server and client renders match
   // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
-  const [windowSize, setWindowSize] = useState({
+  const [ windowSize, setWindowSize ] = useState({
     width: undefined,
     previousWidth: undefined,
     height: undefined,
@@ -30,7 +30,7 @@ export default function useHasWindowResized() {
 
     // Remove event listener on cleanup
     return () => window.removeEventListener('resize', handleResize);
-  }, [windowSize.width, windowSize.height]); // Empty array ensures that effect is only run on mount
+  }, [ windowSize.width, windowSize.height ]);
 
   return windowSize;
 }

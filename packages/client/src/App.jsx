@@ -11,7 +11,6 @@ import AppContext from './store/context';
 
 import styles from './App.module.css';
 
-
 export default function App() {
 
   const { state, dispatch } = useContext(AppContext);
@@ -24,7 +23,7 @@ export default function App() {
       dispatch({ type: 'saveLibrary', payload: data });
     }
     getData();
-  }, [dispatch]);
+  }, [ dispatch ]);
 
   if (!Object.keys(library).length) return <div />;
 

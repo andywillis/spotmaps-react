@@ -18,7 +18,6 @@ function formatItems(type, list) {
   });
 }
 
-
 function List({ type, group }) {
 
   const { state: { [group]: list } } = useContext(AppContext);

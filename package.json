@@ -11,6 +11,9 @@
     "heroku-postbuild": "pnpm run build",
     "testui": "npx vitest watch --ui --threads false",
     "test": "vitest",
+    "lintclient": "eslint --ext js,jsx packages/client/src",
+    "lintserver": "eslint packages/server",
+    "lint": "pnpm run lintclient && pnpm run lintserver",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
