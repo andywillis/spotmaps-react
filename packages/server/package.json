@@ -4,6 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "lint": "eslint",
     "dev": "nodemon --experimental-specifier-resolution=node --experimental-json-modules index"
   },
   "dependencies": {
