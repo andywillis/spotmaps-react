@@ -13,7 +13,7 @@
     "serverprod": "pnpm --filter server run prod",
     "databasedev": "pnpm --filter database run dev",
     "render-install": "pnpm install && pnpm run build",
-    "heroku-postbuild": "pnpm install && pnpm run build",
+    "heroku-postbuild": "pnpm run build",
     "testui": "npx vitest watch --ui --threads false",
     "test": "vitest",
     "lint": "pnpm --filter client run lint && pnpm --filter server run lint",
