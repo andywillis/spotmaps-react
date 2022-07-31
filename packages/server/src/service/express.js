@@ -15,6 +15,8 @@ app.use(compression());
 
 const port = process.env.PORT || 4000;
 
+console.log(process.env.NODE_ENV);
+
 const server = process.env.NODE_ENV === 'production'
   ? http.createServer(app)
   : https.createServer(serverOptions, app);
