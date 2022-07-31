@@ -8,6 +8,7 @@
     "clientdev": "pnpm --filter client run dev",
     "serverdev": "pnpm --filter server run dev",
     "databasedev": "pnpm --filter database run dev",
+    "heroku-postbuild": "pnpm install && pnpm run build",
     "testui": "npx vitest watch --ui --threads false",
     "test": "vitest",
     "lint": "pnpm --filter client run lint && pnpm --filter server run lint",
