@@ -14,6 +14,11 @@ Spotmaps with React upgraded to a new workflow.
 `pnpm install`
 `pnpm run dev`
 
+## To do
+
+- Genres
+- Performance (more server endpoints)
+
 ## Licence
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
