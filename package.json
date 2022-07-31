@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "engines": {
-    "node": ">=17"
+    "node": ">=16"
   },
   "scripts": {
     "dev": "concurrently \"pnpm run serverdev\" \"pnpm run clientdev\"",
@@ -12,8 +12,7 @@
     "serverdev": "pnpm --filter server run dev",
     "serverprod": "pnpm --filter server run prod",
     "databasedev": "pnpm --filter database run dev",
-    "render-install": "pnpm install && pnpm run build",
-    "heroku-postbuild": "pnpm install && pnpm run build",
+    "heroku-postbuild": "pnpm run build",
     "testui": "npx vitest watch --ui --threads false",
     "test": "vitest",
     "lint": "pnpm --filter client run lint && pnpm --filter server run lint",
@@ -34,7 +33,6 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.27.0",
     "eslint-plugin-react-hooks": "^4.4.0",
-    "vite": "^2.9.5",
     "vitest": "^0.16.0"
   }
 }
