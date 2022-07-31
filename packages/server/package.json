@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "lint": "eslint",
-    "dev": "nodemon --experimental-specifier-resolution=node --experimental-json-modules src/index"
+    "dev": "nodemon --experimental-specifier-resolution=node --experimental-json-modules src/index",
+    "prod": "NODE_ENV=production node --experimental-specifier-resolution=node --experimental-json-modules src/index"
   },
   "dependencies": {
     "compression": "^1.7.4",
