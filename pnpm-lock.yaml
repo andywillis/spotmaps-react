@@ -16,6 +16,7 @@ importers:
       eslint-plugin-jsx-a11y: ^6.5.1
       eslint-plugin-react: ^7.27.0
       eslint-plugin-react-hooks: ^4.4.0
+      vite: ^2.9.5
       vitest: ^0.16.0
     dependencies:
       concurrently: 7.3.0
@@ -31,6 +32,7 @@ importers:
       eslint-plugin-jsx-a11y: 6.6.1_eslint@7.32.0
       eslint-plugin-react: 7.30.1_eslint@7.32.0
       eslint-plugin-react-hooks: 4.6.0_eslint@7.32.0
+      vite: 2.9.14
       vitest: 0.16.0_@vitest+ui@0.16.0
 
   packages/client:
@@ -40,7 +42,6 @@ importers:
       react: ^17.0.2
       react-dom: ^17.0.2
       react-router-dom: 5.3.3
-      vite: ^2.9.5
       vite-plugin-compression: ^0.5.1
     dependencies:
       classnames: 2.3.1
@@ -49,8 +50,7 @@ importers:
       react-router-dom: 5.3.3_react@17.0.2
     devDependencies:
       '@vitejs/plugin-react': 1.3.2
-      vite: 2.9.14
-      vite-plugin-compression: 0.5.1_vite@2.9.14
+      vite-plugin-compression: 0.5.1_vite@3.0.4
 
   packages/server:
     specifiers:
@@ -510,8 +510,8 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
 
-  /@types/node/18.6.2:
-    resolution: {integrity: sha512-KcfkBq9H4PI6Vpu5B/KoPeuVDAbmi+2mDBqGPGUgoL7yXQtcWGu2vJWmmRkneWK3Rh0nIAX192Aa87AqKHYChQ==}
+  /@types/node/18.6.3:
+    resolution: {integrity: sha512-6qKpDtoaYLM+5+AFChLhHermMQxc3TOEFIDzrZLPRGHPrLEwqFkkT5Kx3ju05g6X7uDPazz3jHbKPX0KzCjntg==}
     dev: true
 
   /@vitejs/plugin-react/1.3.2:
@@ -3053,7 +3053,7 @@ packages:
     engines: {node: '>= 0.8'}
     dev: false
 
-  /vite-plugin-compression/0.5.1_vite@2.9.14:
+  /vite-plugin-compression/0.5.1_vite@3.0.4:
     resolution: {integrity: sha512-5QJKBDc+gNYVqL/skgFAP81Yuzo9R+EAf19d+EtsMF/i8kFUpNi3J/H01QD3Oo8zBQn+NzoCIFkpPLynoOzaJg==}
     peerDependencies:
       vite: '>=2.0.0'
@@ -3061,7 +3061,7 @@ packages:
       chalk: 4.1.2
       debug: 4.3.4
       fs-extra: 10.1.0
-      vite: 2.9.14
+      vite: 3.0.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3080,6 +3080,33 @@ packages:
       sass:
         optional: true
       stylus:
+        optional: true
+    dependencies:
+      esbuild: 0.14.51
+      postcss: 8.4.14
+      resolve: 1.22.1
+      rollup: 2.77.2
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /vite/3.0.4:
+    resolution: {integrity: sha512-NU304nqnBeOx2MkQnskBQxVsa0pRAH5FphokTGmyy8M3oxbvw7qAXts2GORxs+h/2vKsD+osMhZ7An6yK6F1dA==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      less: '*'
+      sass: '*'
+      stylus: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      terser:
         optional: true
     dependencies:
       esbuild: 0.14.51
@@ -3111,7 +3138,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.1
       '@types/chai-subset': 1.3.3
-      '@types/node': 18.6.2
+      '@types/node': 18.6.3
       '@vitest/ui': 0.16.0
       chai: 4.3.6
       debug: 4.3.4
