@@ -9,7 +9,7 @@
     "serverdev": "pnpm --filter server run dev",
     "serverprod": "pnpm --filter server run prod",
     "databasedev": "pnpm --filter database run dev",
-    "render-install": "pnpm install && pnpm run build && pnpm run serverprod",
+    "render-install": "pnpm install && pnpm run build",
     "heroku-postbuild": "pnpm install && pnpm run build",
     "testui": "npx vitest watch --ui --threads false",
     "test": "vitest",
