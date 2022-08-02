@@ -1,12 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { defineConfig } from 'vite';
+import { defineConfig, splitVendorChunkPlugin } from 'vite';
+import mkcert from 'vite-plugin-mkcert';
 import react from '@vitejs/plugin-react';
-
 import compress from 'vite-plugin-compression';
-import { splitVendorChunkPlugin } from 'vite'
 
 export default defineConfig({
-  plugins: [ react(), compress(), splitVendorChunkPlugin() ],
+  plugins: [ mkcert(), react(), compress(), splitVendorChunkPlugin() ],
   server: {
     proxy: {
       '/library': {
