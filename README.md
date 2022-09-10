@@ -1,4 +1,4 @@
-# spotmaps-react-II
+# spotmaps-react
 
 ## Introduction
 
