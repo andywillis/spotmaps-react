@@ -4,11 +4,17 @@
 .pageNumber {
   user-select: none;
   margin-right: 0.2em;
-  width: 3em;
+  /* width: 3em; */
   text-align: center;
-  padding: 0.5em 1em;
+  padding: 0.5em 0.5em;
   background-color: var(--blue-2);
   /* background-color: rgb(215, 213, 233); */
+}
+
+@media (min-width: 1024px) {
+  .pageNumber {
+    padding: 0.5em 0.75em;
+  }
 }
 
 .pageNumber:hover {
