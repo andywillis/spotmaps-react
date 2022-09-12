@@ -11,6 +11,7 @@
     "clientdev": "pnpm --filter client run dev",
     "serverdev": "pnpm --filter server run dev",
     "serverprod": "pnpm --filter server run prod",
+    "heroku-postbuild": "pnpm run build",
     "test": "vitest",
     "lint": "eslint",
     "coverage": "vitest run --coverage",
