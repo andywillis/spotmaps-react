@@ -1,5 +1,5 @@
 .footer {
-  font-size: 1.2em;
+  font-size: 1em;
   background-color: var(--blue-1);
   border-top: 1px solid var(--blue-9);
   /* background-color: rgb(227, 231, 240); */
@@ -9,3 +9,8 @@
   height: 2.2em;
 }
 
+@media (min-width: 800px) {
+  .wrapper {
+    margin: 1.2em;
+  }
+}

@@ -36,8 +36,14 @@
 .submenu li {
   text-decoration: none;
   display: inline;
-  margin-right: 1em;
+  margin-right: 0.75em;
   /* font-weight: 700; */
+}
+
+@media (min-width: 800px) {
+  .submenu item {
+    margin-right: 0.75em;
+  }
 }
 
 .submenu li a {
