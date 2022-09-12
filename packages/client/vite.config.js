@@ -1,11 +1,9 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
-// import mkcert from 'vite-plugin-mkcert';
 import react from '@vitejs/plugin-react';
 import compress from 'vite-plugin-compression';
 
 export default defineConfig({
-  plugins: [ react(), compress(), splitVendorChunkPlugin() ],
+  plugins: [ react(), splitVendorChunkPlugin(), compress() ],
   root: 'src',
   server: {
     port: 3000,

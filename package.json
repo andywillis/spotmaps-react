@@ -11,12 +11,11 @@
     "clientdev": "pnpm --filter client run dev",
     "serverdev": "pnpm --filter server run dev",
     "serverprod": "pnpm --filter server run prod",
-    "databasedev": "pnpm --filter database run dev",
     "heroku-postbuild": "pnpm run build",
-    "testui": "npx vitest watch --ui --threads false",
     "test": "vitest",
-    "lint": "pnpm --filter client run lint && pnpm --filter server run lint",
-    "coverage": "vitest run --coverage"
+    "lint": "eslint",
+    "coverage": "vitest run --coverage",
+    "snyk": "snyk test --all-projects"
   },
   "dependencies": {
     "concurrently": "^7.4.0"

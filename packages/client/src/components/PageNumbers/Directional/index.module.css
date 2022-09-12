@@ -1,22 +1,37 @@
+@import "open-props/green";
+
 .directional {
-  margin-right: 0.2em;
+  margin-right: 0.1em;
   padding: 0.5em 1em;
-  background-color: rgb(213, 233, 214);
+  background-color: var(--green-2);
+  /* background-color: rgb(213, 233, 214); */
 }
 
 .directional:not(.disabled):hover {
   cursor: pointer;
-  background-color: rgb(102, 156, 123);
+  background-color: var(--green-5);
+  /* background-color: rgb(102, 156, 123); */
 }
 
 .disabled {
+  user-select: none;
   opacity: 0.4;
 }
 
 .previous {
-  margin-right: 1em;
+  margin-right: 0.5em;
 }
 
 .next {
-  margin-left: 1em;
+  margin-left: 0.5em;
+}
+
+[data-id="rwd"] {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+[data-id="ffd"] {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
