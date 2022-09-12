@@ -1,11 +1,11 @@
 .pageNumbers {
-  margin: 2em 0em;
+  margin: 2em 0em 2em 0em;
   display: flex;
   justify-content: center;
 }
 
 @media (min-width: 800px) {
   .pageNumbers {
-    margin: 3em 0em;
+    margin: 3em 0em 3em 0em;
   }
 }

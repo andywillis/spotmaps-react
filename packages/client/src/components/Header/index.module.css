@@ -3,7 +3,7 @@
 @import "open-props/orange";
 
 .header {
-  margin-bottom: 1em;
+  /* margin-bottom: 1em; */
   padding: 0.5em;
   font-size: 1.4em;
   text-align: center;
