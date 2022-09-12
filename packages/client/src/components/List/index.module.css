@@ -3,6 +3,7 @@
 
 .wrapper {
   columns: 1;
+  margin: 2em 0em;
   /* column-gap: 3px;
   column-width: 100%; */
   text-decoration: none;
