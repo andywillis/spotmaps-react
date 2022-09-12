@@ -3,3 +3,9 @@
   display: flex;
   justify-content: center;
 }
+
+@media (min-width: 1024px) {
+  .pageNumbers {
+    margin: 3em 0em;
+  }
+}
