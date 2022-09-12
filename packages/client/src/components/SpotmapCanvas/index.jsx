@@ -11,7 +11,7 @@ export default function SpotmapCanvas(props) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    setSpotSize(mainWidth < 360 ? 4 : Math.floor(mainWidth / 60));
+    setSpotSize(mainWidth < 360 ? 2 : Math.floor(mainWidth / 60));
   }, [ mainWidth ]);
 
   useEffect(() => {

@@ -20,7 +20,7 @@ html, body, #root {
 
 body {
   font-family: 'Calibri', sans-serif;
-  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  font-size: calc(12px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
