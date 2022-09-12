@@ -1,8 +1,19 @@
 @import "open-props/orange";
 
+.wrapper {
+  margin: 1em;
+}
+
 .wrapper .group:not(:first-child) {
   margin: 2em 0;
 }
+
+@media (min-width: 800px) {
+  .wrapper {
+    margin: 1em;
+  }
+}
+
 
 .wrapper h2 {
   font-size: 1.2em;
