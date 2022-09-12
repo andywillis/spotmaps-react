@@ -4,7 +4,7 @@
   justify-content: center;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 800px) {
   .pageNumbers {
     margin: 3em 0em;
   }
