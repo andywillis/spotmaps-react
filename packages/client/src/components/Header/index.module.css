@@ -1,12 +1,31 @@
+@import "open-props/blue";
+@import "open-props/gray";
+@import "open-props/orange";
+
 .header {
   margin-bottom: 1em;
   padding: 0.5em;
   font-size: 1.6em;
   text-align: center;
-  background-color: rgb(227, 231, 240);
+  background-color: var(--blue-1);
+  border-bottom: 1px solid var(--blue-9);
+  /* background-color: rgb(227, 231, 240); */
+}
+
+@media (min-width: 800px) {
+  .header {
+    font-size: 1.8em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    font-size: 2em;
+  }
 }
 
 .submenu ul {
+  user-select: none;
   text-decoration: none;
   list-style-type: none;
   padding: 0;
@@ -15,20 +34,24 @@
 }
 
 .submenu li {
+  text-decoration: none;
   display: inline;
   margin-right: 1em;
+  /* font-weight: 700; */
 }
 
 .submenu li a {
   text-decoration: none;
-  color: black;
+  color: var(--gray-8);
 }
 
 .submenu a:not(.active):hover {
-  color: green;
+  color: var(--orange-9);
 }
 
 .submenu li .active {
-  text-decoration: none;
-  font-weight: 700;
+  /* text-decoration: none; */
+  color: var(--orange-9);
+  text-decoration: underline;
+  font-weight: 600;
 }

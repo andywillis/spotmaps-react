@@ -15,10 +15,6 @@ app.use(compression());
 
 const port = process.env.PORT || 4000;
 
-// Due to the way Heroku deploys we need to have a non-SSL
-// server, otherwise we can use SSL
-const server = process.env.NODE_ENV === 'production'
-  ? http.createServer(app)
-  : https.createServer(serverOptions, app);
+const server = https.createServer(serverOptions, app);
 
 export { app, port, server };

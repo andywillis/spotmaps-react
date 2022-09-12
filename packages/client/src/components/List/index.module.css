@@ -1,19 +1,27 @@
+@import "open-props/blue";
+@import "open-props/gray";
+
 .link {
+  user-select: none;
   padding: 0.5em;
-  margin: 0.5em;
-  background-color: #efefef;
+  margin: 0 0.5em 0.5em 0;
+  background-color: var(--gray-0);
+  /* border: 1px solid white; */
   text-decoration: none;
   color: black;
+  border-radius: 10px;
+  border: 1px solid var(--blue-4);
 }
 
 .wrapper {
+  columns: 2;
   text-decoration: none;
   color: black;
 }
 
 .link:hover {
   cursor:pointer;
-  background-color: #dfdfdf;
+  background-color: var(--blue-1);
 }
 
 .accordian {
