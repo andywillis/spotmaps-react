@@ -14,7 +14,7 @@
 }
 
 .label {
-  width: 4em;
+  width: 6em;
   color: var(--yellow-2);
   text-align: right;
   display: inline-block;
@@ -23,4 +23,17 @@
 
 .detail {
   display: inline-block;
+}
+
+.downloadSwatch {
+  border-radius: 10px;
+  font-size: 0.7em;
+  margin-top: 1em;
+  padding: 0.25em 0.5em;
+  background-color: var(--gray-5);
+}
+
+.downloadSwatch:hover {
+  cursor: pointer;
+  background-color: var(--gray-6);
 }
