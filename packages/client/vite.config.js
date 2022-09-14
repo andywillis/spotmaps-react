@@ -12,6 +12,11 @@ export default defineConfig({
         target: 'https://localhost:4000',
         secure: false,
         changeOrigin: true
+      },
+      '/ase': {
+        target: 'https://localhost:4000',
+        secure: false,
+        changeOrigin: true
       }
     }
   },

@@ -62,15 +62,19 @@ importers:
       draftlog: ^1.0.13
       express: ^4.18.1
       fs.promises.exists: ^1.1.3
+      helmet: ^6.0.0
       http2-express-bridge: ^1.0.7
       nodemon: ^2.0.19
+      rgb2ase: ^0.0.4
     dependencies:
       compression: 1.7.4
       dotenv: 16.0.2
       draftlog: 1.0.13
       express: 4.18.1
       fs.promises.exists: 1.1.3
+      helmet: 6.0.0
       http2-express-bridge: 1.0.7
+      rgb2ase: 0.0.4
     devDependencies:
       babel-plugin-import: 1.13.5
       nodemon: 2.0.19
@@ -2089,6 +2093,11 @@ packages:
     dependencies:
       function-bind: 1.1.1
 
+  /helmet/6.0.0:
+    resolution: {integrity: sha512-FO9RpR1wNJepH/GbLPQVtkE2eESglXL641p7SdyoT4LngHFJcZheHMoyUcjCZF4qpuMMO1u5q6RK0l9Ux8JBcg==}
+    engines: {node: '>=14.0.0'}
+    dev: false
+
   /history/4.10.1:
     resolution: {integrity: sha512-36nwAD620w12kuzPAsyINPWJqlNbij+hpK1k9XRloDtym8mxzGYl2c17LnV6IAGB2Dmg4tEa7G7DlawS0+qjew==}
     dependencies:
@@ -2768,6 +2777,11 @@ packages:
       side-channel: 1.0.4
     dev: false
 
+  /quantize/1.0.2:
+    resolution: {integrity: sha512-25P7wI2UoDbIQsQp50ARkt+5pwPsOq7G/BqvT5xAbapnRoNWMN8/p55H9TXd5MuENiJnm5XICB2H2aDZGwts7w==}
+    engines: {node: '>=0.10.21'}
+    dev: false
+
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
@@ -2907,6 +2921,12 @@ packages:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
     dev: true
+
+  /rgb2ase/0.0.4:
+    resolution: {integrity: sha512-UIDERre/tNE0SjHyZePF5hZqzGA584X3nodkGoGRrXkOfIwahnG+L4rzf7VAdLTimpnUFbcHA2RpvyCo4rgFvA==}
+    dependencies:
+      quantize: 1.0.2
+    dev: false
 
   /rimraf/3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
