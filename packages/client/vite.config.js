@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [ react(), splitVendorChunkPlugin(), compress() ],
   root: 'src',
   server: {
+    open: true,
     port: 3000,
     proxy: {
       '/library': {
@@ -22,6 +23,7 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
+    emptyOutDir: true,
     outDir: '../build',
     sourcemap: true
   }

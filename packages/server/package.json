@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "lint": "eslint",
+    "compileLibrary": "node --experimental-specifier-resolution=node --experimental-json-modules src/tools/createCompiledLibrary",
     "dev": "nodemon --experimental-specifier-resolution=node --experimental-json-modules src/index"
   },
   "dependencies": {

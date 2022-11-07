@@ -13,7 +13,7 @@
     }
   },
   "rules": {
-    "import/extensions": [1, {
+    "import/extensions": [0, {
       "css": "never",
       "js": "never",
       "jsx": "never",
