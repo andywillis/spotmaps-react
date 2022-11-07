@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint",
     "compileLibrary": "node --experimental-specifier-resolution=node --experimental-json-modules src/tools/createCompiledLibrary",
-    "dev": "nodemon --experimental-specifier-resolution=node --experimental-json-modules src/index"
+    "dev": "nodemon --experimental-specifier-resolution=node --experimental-json-modules src/index",
+    "prod": "node --experimental-specifier-resolution=node --experimental-json-modules src/index"
   },
   "dependencies": {
     "compression": "^1.7.4",

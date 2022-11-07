@@ -10,12 +10,12 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/library': {
-        target: 'https://localhost:4000',
+        target: 'http://localhost:4000',
         secure: false,
         changeOrigin: true
       },
       '/ase': {
-        target: 'https://localhost:4000',
+        target: 'http://localhost:4000',
         secure: false,
         changeOrigin: true
       }

@@ -14,6 +14,5 @@ app.get('/library', await routes.library(compiledLibrary));
 app.get('*', routes.root());
 
 server.listen(port, () => {
-  console.log(`https server running on port ${port}`);
-  console.log(`Which means you need to use https://localhost:${port}`);
+  console.log(`http server running on port ${port}`);
 });

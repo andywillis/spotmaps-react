@@ -26,7 +26,7 @@ export default function Details({ data, handleAseDownload }) {
         <div className={styles.label}>Genre</div>
         <div className={styles.detail}>{genre.join(', ')}</div>
       </div>
-      <div className="download">
+      {/* <div className="download">
         <div className={styles.label}>&nbsp;</div>
         <div className={styles.detail}>
           <button
@@ -36,7 +36,7 @@ export default function Details({ data, handleAseDownload }) {
           >Download swatch (.ase format)
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 
