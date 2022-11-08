@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 
-function ScrollToTop({ children, location }) {
+function ScrollToTop({ children }) {
 
   // const [ state, setState ] = useState();
-  const { pathname } = location;
+  // const { pathname } = location;
+
+  const { pathname } = useLocation();
 
   useEffect(() => {
     // if (pathname !== state) {
@@ -18,4 +21,5 @@ function ScrollToTop({ children, location }) {
 
 }
 
-export default withRouter(ScrollToTop);
+export default ScrollToTop;
+// export default withRouter(ScrollToTop);

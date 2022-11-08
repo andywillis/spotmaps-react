@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 
 import Details from '../Details';
 import SpotmapCanvas from '../SpotmapCanvas';
@@ -33,4 +33,5 @@ function SpotmapContainer(props) {
   );
 }
 
-export default withRouter(SpotmapContainer);
+export default SpotmapContainer;
+// export default withRouter(SpotmapContainer);
