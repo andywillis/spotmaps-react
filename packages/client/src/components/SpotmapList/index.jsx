@@ -25,7 +25,7 @@ function SpotmapList() {
 
   const setMainWidth = useSetRecoilState(mainWidthAtom);
   const filteredData = useRecoilValue(spotmapsSelector(type, value));
-  const spotmapsData = useRecoilValueLoadable(spotmapsDataQuery(filteredData));
+  const { state, contents } = useRecoilValueLoadable(spotmapsDataQuery(filteredData));
 
   useEffect(() => {
     const bound = mainRef.current.getBoundingClientRect();
@@ -35,18 +35,18 @@ function SpotmapList() {
   const classes = classNames({
     [styles.spotmapList]: true,
     [styles.visible]: mainWidth > 0,
-    [styles.fadeOutContainer]: spotmapsData.state === 'loading',
-    [styles.fadeInContainer]: spotmapsData.state === 'hasValue' && mainWidth > 0
+    [styles.fadeOutContainer]: state === 'loading',
+    [styles.fadeInContainer]: state === 'hasValue' && mainWidth > 0
   });
 
-  if (spotmapsData.state === 'loading') return <Spinner />;
+  // if (spotmapsData.state === 'loading') return ;
 
   return (
     <div ref={mainRef} className={classes}>
-      {spotmapsData.state === 'hasValue' && spotmapsData.contents.map(data => {
+      {state === 'hasValue' && contents.length ? contents.map(data => {
         const { id } = data;
         return <SpotmapContainer key={id} data={data} />;
-      })}
+      }) : <Spinner />}
     </div>
   );
 
