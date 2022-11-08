@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-// import { withRouter } from 'react-router-dom';
 
 function ScrollToTop({ children }) {
 
@@ -22,4 +21,3 @@ function ScrollToTop({ children }) {
 }
 
 export default ScrollToTop;
-// export default withRouter(ScrollToTop);

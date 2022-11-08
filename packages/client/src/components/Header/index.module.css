@@ -1,6 +1,6 @@
-@import "open-props/blue";
-@import "open-props/gray";
-@import "open-props/orange";
+@import 'open-props/blue';
+@import 'open-props/gray';
+@import 'open-props/orange';
 
 .header {
   /* margin-bottom: 1em; */
@@ -55,7 +55,7 @@
   color: var(--orange-9);
 }
 
-.active {
+.submenu a.active {
   color: var(--orange-9);
   text-decoration: underline;
   font-weight: 600;
