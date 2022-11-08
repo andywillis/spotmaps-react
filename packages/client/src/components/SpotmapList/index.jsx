@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef } from 'react';
-import { withRouter } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import classNames from 'classnames';
 
@@ -29,17 +29,16 @@ function wrangleData({ library, page, limit, path, value }) {
   return library.slice((page - 1) * limit, (page * limit));
 }
 
-function SpotmapList(props) {
+function SpotmapList() {
 
   const windowSize = useWindowResize();
   const mainRef = useRef(null);
+  const { path, value } = useParams();
 
   const {
     state: { page, limit, library, mainWidth },
     dispatch
   } = useContext(AppContext);
-
-  const { match: { params: { path, value } } } = props;
 
   const data = wrangleData({ library, page, limit, path, value });
 
@@ -65,4 +64,4 @@ function SpotmapList(props) {
 
 }
 
-export default withRouter(SpotmapList);
+export default SpotmapList;
