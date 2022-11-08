@@ -14,6 +14,11 @@ export default defineConfig({
         secure: false,
         changeOrigin: true
       },
+      '/spotmap': {
+        target: 'http://localhost:4000',
+        secure: false,
+        changeOrigin: true
+      },
       '/ase': {
         target: 'http://localhost:4000',
         secure: false,

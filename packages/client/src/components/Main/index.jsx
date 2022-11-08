@@ -22,13 +22,9 @@ export default function Main() {
           path="/"
           element={(
             <>
-              <nav>
-                <PageNumbers />
-              </nav>
+              <PageNumbers />
               <SpotmapList />
-              <nav>
-                <PageNumbers />
-              </nav>
+              {/* <PageNumbers /> */}
             </>
           )}
         />

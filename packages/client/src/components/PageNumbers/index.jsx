@@ -1,9 +1,10 @@
-import { useContext } from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+// import { useContext } from 'react';
 
 import PageNumber from './PageNumber';
 import Directional from './Directional';
 
-import AppContext from '../../store/context';
+import { pageAtom, numberOfPagesAtom } from '../../store/atoms';
 
 import styles from './index.module.css';
 
@@ -36,8 +37,9 @@ function buildPageList({ page, numberOfPages }) {
 
 export default function PageNumbers() {
 
-  const { state, dispatch } = useContext(AppContext);
-  const { page, numberOfPages } = state;
+  const page = useRecoilValue(pageAtom);
+  const setPage = useSetRecoilState(pageAtom);
+  const numberOfPages = useRecoilValue(numberOfPagesAtom);
 
   function handleClick(e) {
 
@@ -48,23 +50,23 @@ export default function PageNumbers() {
     if (id) {
       switch (id) {
         case 'number': {
-          dispatch({ type: 'setPage', payload: parseInt(number, 10) });
+          setPage(parseInt(number, 10));
           break;
         }
         case 'rwd': {
-          if (!isDisabled) dispatch({ type: 'rwd' });
+          if (!isDisabled) setPage(1);
           break;
         }
         case 'previous': {
-          if (!isDisabled) dispatch({ type: 'previous' });
+          if (!isDisabled) setPage(page - 1);
           break;
         }
         case 'next': {
-          if (!isDisabled) dispatch({ type: 'next' });
+          if (!isDisabled) setPage(page + 1);
           break;
         }
         case 'ffd': {
-          if (!isDisabled) dispatch({ type: 'ffd' });
+          if (!isDisabled) setPage(numberOfPages);
           break;
         }
         default: break;
@@ -74,13 +76,13 @@ export default function PageNumbers() {
   }
 
   return (
-    <div role="presentation" className={styles.pageNumbers} onClick={handleClick}>
+    <nav role="presentation" className={styles.pageNumbers} onClick={handleClick}>
       <Directional type="rwd" page={page} />
       <Directional type="previous" page={page} numberOfPages={numberOfPages} />
       {numberOfPages > 1 ? buildPageList({ page, numberOfPages }) : null}
       <Directional type="next" page={page} numberOfPages={numberOfPages} />
       <Directional type="ffd" page={page} numberOfPages={numberOfPages} />
-    </div>
+    </nav>
   );
 
 }

@@ -1,37 +1,38 @@
-import React, { lazy, Suspense, useContext, useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
+import { useSetRecoilState } from 'recoil';
 
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Spinner from './components/Spinner';
+import Main from './components/Main';
 
-import AppContext from './store/context';
+import { libraryAtom, numberOfPagesAtom } from './store/atoms';
 
 import styles from './App.module.css';
 
-const Main = lazy(() => import('./components/Main'));
+// const Main = lazy(() => import('./components/Main'));
 
 export default function App() {
 
-  const { state, dispatch } = useContext(AppContext);
-  const { library } = state;
+  const setLibrary = useSetRecoilState(libraryAtom);
+  const setNumberOfPages = useSetRecoilState(numberOfPagesAtom);
 
   useEffect(() => {
     async function getData() {
-      const res = await fetch('/library');
-      const data = await res.json();
-      dispatch({ type: 'saveLibrary', payload: data });
+      const response = await fetch('/library');
+      const library = await response.json();
+      setLibrary(library);
+      setNumberOfPages(library.length);
     }
     getData();
-  }, [ dispatch ]);
-
-  if (!Object.keys(library).length) return <div />;
+  }, [ setLibrary, setNumberOfPages ]);
 
   return (
     <article className={styles.article}>
       <Header />
-      <Suspense fallback={<Spinner />}>
+      {/* <Suspense fallback={<Spinner />}> */}
         <Main />
-      </Suspense>
+      {/* </Suspense> */}
       <Footer />
     </article>
   );
