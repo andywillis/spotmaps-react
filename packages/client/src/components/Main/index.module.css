@@ -1,6 +1,7 @@
 .main {
   width: 99%;
   margin: 0 auto;
+  min-height: calc(100vh - 200px);
 }
 
 @media (min-width: 1024px) {
