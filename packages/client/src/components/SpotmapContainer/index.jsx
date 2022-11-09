@@ -1,16 +1,17 @@
-import { useContext } from 'react';
+import { useRecoilValue } from 'recoil';
 
 import Details from '../Details';
 import SpotmapCanvas from '../SpotmapCanvas';
 
-import AppContext from '../../store/context';
+import { mainWidthAtom } from '../../store/atoms';
 
 import styles from './index.module.css';
 
 function SpotmapContainer(props) {
 
-  const { state: { mainWidth } } = useContext(AppContext);
   const { data: { hexData, numberOfSpots, ...details } } = props;
+
+  const mainWidth = useRecoilValue(mainWidthAtom);
 
   function handleAseDownload(filename) {
     console.log(filename);

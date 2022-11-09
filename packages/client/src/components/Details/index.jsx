@@ -1,6 +1,6 @@
 import styles from './index.module.css';
 
-export default function Details({ data, handleAseDownload }) {
+export default function Details({ data }) {
 
   const { title, director, writer, year, genre } = data;
 

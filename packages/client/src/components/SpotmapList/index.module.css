@@ -1,8 +1,10 @@
 .spotmapList {
+  position: relative;
   visibility: hidden;
   width: 95%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 3em;
 }
 
 .visible {

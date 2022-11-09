@@ -11,24 +11,20 @@ export default function Main() {
   return (
     <main className={styles.main}>
       <Routes>
-        <Route path="/directors" element={<List group="directors" type="director" />} />
-        <Route path="/genres" element={<List group="genres" type="genre" />} />
-        <Route path="/titles" element={<List group="titles" type="title" />} />
-        <Route path="/writers" element={<List group="writers" type="writer" />} />
-        <Route path="/years" element={<List group="years" type="year" />} />
+        <Route path="/director" element={<List type="director" />} />
+        <Route path="/genre" element={<List type="genre" />} />
+        <Route path="/title" element={<List type="title" />} />
+        <Route path="/writer" element={<List type="writer" />} />
+        <Route path="/year" element={<List type="year" />} />
         <Route path="/:path/:value" element={<SpotmapList />} />
         <Route path="/about" element={<About />} />
         <Route
           path="/"
           element={(
             <>
-              <nav>
-                <PageNumbers />
-              </nav>
+              <PageNumbers />
               <SpotmapList />
-              <nav>
-                <PageNumbers />
-              </nav>
+              {/* <PageNumbers /> */}
             </>
           )}
         />

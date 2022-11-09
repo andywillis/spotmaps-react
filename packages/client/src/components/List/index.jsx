@@ -1,12 +1,12 @@
-import { useContext } from 'react';
+import { useRecoilValue } from 'recoil';
 import { Link } from 'react-router-dom';
 
-import AppContext from '../../store/context';
+import { typeSelector } from '../../store/selectors';
 
 import styles from './index.module.css';
 
-function formatItems(type, list) {
-  return list.map((value) => {
+function formatItems(type, typeList) {
+  return typeList.map((value) => {
     const link = `/${type}/${value}`;
     return (
       <Link key={value} className={styles.wrapper} to={link}>
@@ -18,13 +18,13 @@ function formatItems(type, list) {
   });
 }
 
-function List({ type, group }) {
+function List({ type }) {
 
-  const { state: { [group]: list } } = useContext(AppContext);
+  const typeList = useRecoilValue(typeSelector(type));
 
   return (
     <div className={styles.wrapper}>
-      {formatItems(type, list)}
+      {formatItems(type, typeList)}
     </div>
   );
 

@@ -1,64 +1,50 @@
-import { useContext, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { useRecoilValue, useRecoilValueLoadable, useSetRecoilState } from 'recoil';
+import classNames from 'classnames';
 import { useParams } from 'react-router-dom';
 
-import classNames from 'classnames';
-
+import Spinner from '../Spinner';
 import SpotmapContainer from '../SpotmapContainer';
-import AppContext from '../../store/context';
 
 import useWindowResize from '../../hooks/useWindowResize';
 
+import { mainWidthAtom } from '../../store/atoms';
+import { spotmapsSelector } from '../../store/selectors';
+import { spotmapsDataQuery } from '../../store/queries';
+
 import styles from './index.module.css';
-
-function convertValue(path, value) {
-  if (path === 'year') return +value;
-  return value;
-}
-
-function wrangleData({ library, page, limit, path, value }) {
-  if (path && value) {
-    if ([ 'director', 'genre', 'writer' ].includes(path)) {
-      return library.filter((spotmap) => {
-        return spotmap[path].includes(value);
-      });
-    }
-    return library.filter((spotmap) => {
-      return spotmap[path] === convertValue(path, value);
-    });
-  }
-  return library.slice((page - 1) * limit, (page * limit));
-}
 
 function SpotmapList() {
 
   const windowSize = useWindowResize();
   const mainRef = useRef(null);
-  const { path, value } = useParams();
 
-  const {
-    state: { page, limit, library, mainWidth },
-    dispatch
-  } = useContext(AppContext);
+  const { path: type, value } = useParams();
 
-  const data = wrangleData({ library, page, limit, path, value });
+  const mainWidth = useRecoilValue(mainWidthAtom);
+
+  const setMainWidth = useSetRecoilState(mainWidthAtom);
+  const filteredData = useRecoilValue(spotmapsSelector({ type, value }));
+  const { state, contents } = useRecoilValueLoadable(spotmapsDataQuery(filteredData));
 
   useEffect(() => {
     const bound = mainRef.current.getBoundingClientRect();
-    dispatch({ type: 'setMainWidth', payload: Math.floor(bound.width) });
-  }, [ windowSize.width, dispatch ]);
+    setMainWidth(Math.floor(bound.width));
+  }, [ windowSize.width, setMainWidth ]);
 
   const classes = classNames({
     [styles.spotmapList]: true,
     [styles.visible]: mainWidth > 0,
-    [styles.fadeInContainer]: mainWidth > 0
+    [styles.fadeOutContainer]: state === 'loading' && mainWidth > 0,
+    [styles.fadeInContainer]: state === 'hasValue' && mainWidth > 0
   });
 
   return (
     <div ref={mainRef} className={classes}>
-      {data.map((spotmapData) => {
-        const { id } = spotmapData;
-        return <SpotmapContainer key={id} data={spotmapData} />;
-      })}
+      {state === 'hasValue' && contents.length ? contents.map(data => {
+        const { id } = data;
+        return <SpotmapContainer key={id} data={data} />;
+      }) : <Spinner />}
     </div>
   );
 

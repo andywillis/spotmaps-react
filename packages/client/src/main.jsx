@@ -1,24 +1,26 @@
 import { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
+import { RecoilRoot } from 'recoil';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import App from './App';
 
 import ScrollTop from './helpers/ScrollTop';
 
-import AppProvider from './store/provider';
-
 import './main.css';
 
-ReactDOM.render(
-  <StrictMode>
-    <AppProvider>
-      <Router>
-        <ScrollTop>
-          <App />
-        </ScrollTop>
-      </Router>
-    </AppProvider>
-  </StrictMode>,
-  document.getElementById('root')
-);
+const root = document.getElementById('root');
+
+ReactDOM
+  .createRoot(root)
+  .render(
+    <RecoilRoot>
+      <StrictMode>
+        <Router>
+          <ScrollTop>
+            <App />
+          </ScrollTop>
+        </Router>
+      </StrictMode>
+    </RecoilRoot>
+  );
