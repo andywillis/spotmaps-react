@@ -18,31 +18,37 @@ export default function Header() {
           </li>
           <li>
             <NavLink
-              to="/directors"
+              to="/director"
               className={({ isActive }) => isActive ? style.active : undefined}
-            >Directors
+            >Director
             </NavLink>
           </li>
-          {/* <li><NavLink activeClassName={styles.active} to="/genres">Genres</NavLink></li> */}
+          {/* <li>
+            <NavLink
+              className={({ isActive }) => isActive ? style.active : undefined}
+              to="/genre"
+            >Genre
+            </NavLink>
+          </li> */}
           <li>
             <NavLink
-              to="/titles"
+              to="/title"
               className={({ isActive }) => isActive ? style.active : undefined}
-            >Titles
+            >Title
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="/writers"
+              to="/writer"
               className={({ isActive }) => isActive ? style.active : undefined}
-            >Writers
+            >Writer
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="/years"
+              to="/year"
               className={({ isActive }) => isActive ? style.active : undefined}
-            >Years
+            >Year
             </NavLink>
           </li>
           <li>

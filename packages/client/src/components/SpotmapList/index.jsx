@@ -19,12 +19,12 @@ function SpotmapList() {
   const windowSize = useWindowResize();
   const mainRef = useRef(null);
 
-  const { type, value } = useParams();
+  const { path: type, value } = useParams();
 
   const mainWidth = useRecoilValue(mainWidthAtom);
 
   const setMainWidth = useSetRecoilState(mainWidthAtom);
-  const filteredData = useRecoilValue(spotmapsSelector(type, value));
+  const filteredData = useRecoilValue(spotmapsSelector({ type, value }));
   const { state, contents } = useRecoilValueLoadable(spotmapsDataQuery(filteredData));
 
   useEffect(() => {
@@ -35,11 +35,9 @@ function SpotmapList() {
   const classes = classNames({
     [styles.spotmapList]: true,
     [styles.visible]: mainWidth > 0,
-    [styles.fadeOutContainer]: state === 'loading',
+    [styles.fadeOutContainer]: state === 'loading' && mainWidth > 0,
     [styles.fadeInContainer]: state === 'hasValue' && mainWidth > 0
   });
-
-  // if (spotmapsData.state === 'loading') return ;
 
   return (
     <div ref={mainRef} className={classes}>
