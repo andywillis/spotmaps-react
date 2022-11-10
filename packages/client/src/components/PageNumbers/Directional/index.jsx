@@ -1,5 +1,8 @@
+import { useRecoilValue } from 'recoil';
 import classnames from 'classnames';
 import styles from './index.module.css';
+
+import { pageAtom, numberOfPagesAtom } from '../../../store/atoms';
 
 /**
  * isDisabled
@@ -17,12 +20,13 @@ function isDisabled(type, page, numberOfPages) {
 /**
  * Directional
  *
- * @param {object} props
+ * @param {object} { type }
  * @return {object} JSX
  */
-function Directional(props) {
+function Directional({ type }) {
 
-  const { type, page, numberOfPages } = props;
+  const page = useRecoilValue(pageAtom);
+  const numberOfPages = useRecoilValue(numberOfPagesAtom);
 
   const disabledStyle = (
     ((type === 'rwd' || type === 'previous') && page === 1)

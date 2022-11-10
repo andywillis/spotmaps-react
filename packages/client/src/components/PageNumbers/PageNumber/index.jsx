@@ -1,13 +1,19 @@
+import { useRecoilValue } from 'recoil';
 import classnames from 'classnames';
+
+import { pageAtom } from '../../../store/atoms';
+
 import styles from './index.module.css';
 
 /**
  * PageNumber
  *
- * @param {object} { page, number, disabled }
+ * @param {object} { number, disabled }
  * @return {object} JSX
  */
-function PageNumber({ page, number, disabled }) {
+function PageNumber({ number, disabled }) {
+
+  const page = useRecoilValue(pageAtom);
 
   const classes = classnames([
     styles.pageNumber,

@@ -9,6 +9,7 @@ import compiledLibrary from '../data/library/compiledLibrary' assert { type: 'js
 
 app.get('/library', await routes.library(library));
 app.get('/spotmap/:id', await routes.spotmap(compiledLibrary));
+app.get('/ase/:title', await routes.ase(compiledLibrary));
 app.get('*', routes.root());
 
 server.listen(port, () => {

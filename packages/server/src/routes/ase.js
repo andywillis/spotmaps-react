@@ -1,4 +1,7 @@
-import toSwatch from 'rgb2ase';
+import path from 'path';
+import fs from 'fs';
+
+import rootname from '../../rootname';
 
 /**
  * ase route
@@ -8,11 +11,17 @@ import toSwatch from 'rgb2ase';
  */
 async function ase(library) {
 
-  return function (req, res) {
+  return async function (req, res) {
     
-    const { filename } = req.params;
+    const { title } = req.params;
+
+    const spotmap = library.find(spotmap => {
+      return spotmap.title === title;
+    });
+
+    const filePath = path.join(`${rootname}`, 'data/ase/', `${spotmap.title}.ase`);
     
-    res.download(file);
+    res.status(200).download(filePath, `${spotmap.title}.ase`);
   
   };
 
