@@ -5,9 +5,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import App from './App';
 
-import ScrollTop from './helpers/ScrollTop';
+import ScrollTop from './components/ScrollTop';
 
-import './main.css';
+import './index.css';
 
 const root = document.getElementById('root');
 

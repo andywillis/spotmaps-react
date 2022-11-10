@@ -5,24 +5,24 @@ export const libraryAtom = atom({
   default: []
 });
 
-export const currentSpotmaps = atom({
-  key: 'currentSpotmaps',
-  default: []
+export const numberOfPagesAtom = atom({
+  key: 'numberOfPagesAtom',
+  default: 0
+});
+
+export const filteredLibraryAtom = atom({
+  key: 'filteredLibraryAtom',
+  default: libraryAtom
+});
+
+export const numberOfFilteredPagesAtom = atom({
+  key: 'numberOfFilteredPagesAtom',
+  default: numberOfPagesAtom
 });
 
 export const pageAtom = atom({
   key: 'pageAtom',
   default: 1
-});
-
-// export const previousPageAtom = atom({
-//   key: 'previousPageAtom',
-//   default: 1
-// });
-
-export const numberOfPagesAtom = atom({
-  key: 'numberOfPagesAtom',
-  default: 0
 });
 
 export const limitAtom = atom({
@@ -39,11 +39,3 @@ export const mainWidthAtom = atom({
   key: 'mainWidthAtom',
   default: 0
 });
-
-// genres: [],
-// writers: [],
-// directors: [],
-// library: [],
-// search: [],
-// years: [],
-// titles: [],

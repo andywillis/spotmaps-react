@@ -1,10 +1,9 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-// import { useContext } from 'react';
 
 import PageNumber from './PageNumber';
 import Directional from './Directional';
 
-import { pageAtom, numberOfPagesAtom } from '../../store/atoms';
+import { pageAtom, numberOfFilteredPagesAtom } from '../../store/atoms';
 
 import styles from './index.module.css';
 
@@ -39,7 +38,7 @@ export default function PageNumbers() {
 
   const page = useRecoilValue(pageAtom);
   const setPage = useSetRecoilState(pageAtom);
-  const numberOfPages = useRecoilValue(numberOfPagesAtom);
+  const numberOfPages = useRecoilValue(numberOfFilteredPagesAtom);
 
   function handleClick(e) {
 
@@ -79,7 +78,9 @@ export default function PageNumbers() {
     <nav role="presentation" className={styles.pageNumbers} onClick={handleClick}>
       <Directional type="rwd" page={page} />
       <Directional type="previous" page={page} numberOfPages={numberOfPages} />
-      {numberOfPages > 1 ? buildPageList({ page, numberOfPages }) : null}
+      {numberOfPages > 1
+        ? buildPageList({ page, numberOfPages })
+        : <PageNumber page="1" number="1" />}
       <Directional type="next" page={page} numberOfPages={numberOfPages} />
       <Directional type="ffd" page={page} numberOfPages={numberOfPages} />
     </nav>
