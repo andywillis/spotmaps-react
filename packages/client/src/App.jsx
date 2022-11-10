@@ -13,7 +13,12 @@ import {
 
 import styles from './App.module.css';
 
-export default function App() {
+/**
+ * App
+ *
+ * @return {object} JSX
+ */
+function App() {
 
   const setLibrary = useSetRecoilState(libraryAtom);
   const setFilteredLibrary = useSetRecoilState(filteredLibraryAtom);
@@ -38,3 +43,5 @@ export default function App() {
     </article>
   );
 }
+
+export default App;

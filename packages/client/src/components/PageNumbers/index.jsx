@@ -7,6 +7,12 @@ import { pageAtom, numberOfPagesAtom } from '../../store/atoms';
 
 import styles from './index.module.css';
 
+/**
+ * buildPageList
+ *
+ * @param {object} { page, numberOfPages }
+ * @return {array} Array of Page components
+ */
 function buildPageList({ page, numberOfPages }) {
 
   const pages = [];
@@ -39,12 +45,22 @@ function buildPageList({ page, numberOfPages }) {
 
 }
 
-export default function PageNumbers() {
+/**
+ * PageNumbers
+ *
+ * @return {object} JSX
+ */
+function PageNumbers() {
 
   const page = useRecoilValue(pageAtom);
   const setPage = useSetRecoilState(pageAtom);
   const numberOfPages = useRecoilValue(numberOfPagesAtom);
 
+  /**
+   * handleClick
+   *
+   * @param {object} e - Event
+   */
   function handleClick(e) {
 
     const { dataset: { disabled, number, id } } = e.target;
@@ -92,3 +108,5 @@ export default function PageNumbers() {
   );
 
 }
+
+export default PageNumbers;

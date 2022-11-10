@@ -1,7 +1,13 @@
 import classnames from 'classnames';
 import styles from './index.module.css';
 
-export default function PageNumber({ page, number, disabled }) {
+/**
+ * PageNumber
+ *
+ * @param {object} { page, number, disabled }
+ * @return {object} JSX
+ */
+function PageNumber({ page, number, disabled }) {
 
   const classes = classnames([
     styles.pageNumber,
@@ -16,3 +22,5 @@ export default function PageNumber({ page, number, disabled }) {
   );
 
 }
+
+export default PageNumber;

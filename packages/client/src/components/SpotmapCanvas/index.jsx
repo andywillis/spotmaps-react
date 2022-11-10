@@ -2,7 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 
 import styles from './index.module.css';
 
-export default function SpotmapCanvas(props) {
+/**
+ * SpotmapCanvas
+ *
+ * @param {object} props
+ * @return {object} JSX
+ */
+function SpotmapCanvas(props) {
 
   const { numberOfSpots, hexData, mainWidth } = props;
 
@@ -56,3 +62,5 @@ export default function SpotmapCanvas(props) {
     <canvas className={styles.spotmap} ref={canvasRef} />
   );
 }
+
+export default SpotmapCanvas;

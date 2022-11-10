@@ -6,7 +6,12 @@ import SpotmapList from '../SpotmapList';
 
 import styles from './index.module.css';
 
-export default function Main() {
+/**
+ * Main
+ *
+ * @return {object} JSX
+ */
+function Main() {
   return (
     <main className={styles.main}>
       <Routes>
@@ -22,3 +27,5 @@ export default function Main() {
     </main>
   );
 }
+
+export default Main;

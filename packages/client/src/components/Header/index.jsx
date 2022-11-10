@@ -3,7 +3,12 @@ import { NavLink } from 'react-router-dom';
 
 import style from './index.module.css';
 
-export default function Header() {
+/**
+ * Header
+ *
+ * @return {object} JSX
+ */
+function Header() {
   return (
     <header className={style.header}>
       <nav className={style.submenu}>
@@ -63,3 +68,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default Header;

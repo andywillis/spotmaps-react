@@ -1,7 +1,12 @@
 /* eslint-disable max-len */
 import styles from './index.module.css';
 
-export default function About() {
+/**
+ * About
+ *
+ * @return {object} JSX
+ */
+function About() {
   return (
     <div className={styles.wrapper}>
       <article className={styles.group}>
@@ -29,3 +34,5 @@ export default function About() {
     </div>
   );
 }
+
+export default About;

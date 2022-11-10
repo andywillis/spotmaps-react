@@ -3,13 +3,17 @@ import { useParams } from 'react-router-dom';
 
 import styles from './index.module.css';
 
-export default function Details({ data }) {
+/**
+ * Details
+ *
+ * @param {object} { data }
+ * @return {object} JSX
+ */
+function Details({ data }) {
 
   const { type, value } = useParams();
 
   const { id, title, director, writer, year, genre } = data;
-
-  console.log(value, title);
 
   return (
     <div className={styles.details}>
@@ -117,3 +121,5 @@ export default function Details({ data }) {
   );
 
 }
+
+export default Details;
