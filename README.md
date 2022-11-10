@@ -16,11 +16,7 @@ Spotmaps with React upgraded to a new workflow.
 
 ## To do
 
-- Genres
-- Performance
-  - Separate server endpoints
-  - Return buffer
-  - String compression
+- .ase download
 
 ## Licence
 

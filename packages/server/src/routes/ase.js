@@ -1,6 +1,12 @@
 import toSwatch from 'rgb2ase';
 
-export default async function library(library) {
+/**
+ * ase route
+ *
+ * @param {array} library
+ * @return {function} Route function
+ */
+async function ase(library) {
 
   return function (req, res) {
     
@@ -11,3 +17,5 @@ export default async function library(library) {
   };
 
 }
+
+export default ase;
