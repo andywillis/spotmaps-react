@@ -5,7 +5,6 @@ import helmet from 'helmet';
 import compression from 'compression';
 
 import rootname from '../../rootname';
-import serverOptions from './config/server';
 
 const app = express();
 
