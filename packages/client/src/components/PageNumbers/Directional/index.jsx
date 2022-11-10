@@ -1,12 +1,26 @@
 import classnames from 'classnames';
 import styles from './index.module.css';
 
+/**
+ * isDisabled
+ *
+ * @param {string} type
+ * @param {string} page
+ * @param {number} numberOfPages
+ * @return {boolean} isDisabled
+ */
 function isDisabled(type, page, numberOfPages) {
   return ((type === 'rwd' || type === 'previous') && page === 1)
   || ((type === 'ffd' || type === 'next') && page === numberOfPages);
 }
 
-export default function RWD(props) {
+/**
+ * Directional
+ *
+ * @param {object} props
+ * @return {object} JSX
+ */
+function Directional(props) {
 
   const { type, page, numberOfPages } = props;
 
@@ -42,3 +56,5 @@ export default function RWD(props) {
     </div>
   );
 }
+
+export default Directional;

@@ -3,7 +3,13 @@ import fs from 'fs/promises';
 
 import rootname from '../../rootname';
 
-export default function getHexData(filenames) {
+/**
+ * getHexData
+ *
+ * @param {array} filenames
+ * @return {array} Array of hex data objects
+ */
+function getHexData(filenames) {
 
   const filePath = `${rootname}/data/hex/`;
 
@@ -16,3 +22,5 @@ export default function getHexData(filenames) {
   }));
 
 }
+
+export default getHexData;

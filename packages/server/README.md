@@ -1,3 +1,3 @@
-#### spotmaps-react-II
+# spotmaps-react server package
 
 Now with added `pnpm`.

@@ -1,5 +1,4 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-// import { useContext } from 'react';
 
 import PageNumber from './PageNumber';
 import Directional from './Directional';
@@ -8,6 +7,12 @@ import { pageAtom, numberOfPagesAtom } from '../../store/atoms';
 
 import styles from './index.module.css';
 
+/**
+ * buildPageList
+ *
+ * @param {object} { page, numberOfPages }
+ * @return {array} Array of Page components
+ */
 function buildPageList({ page, numberOfPages }) {
 
   const pages = [];
@@ -15,7 +20,12 @@ function buildPageList({ page, numberOfPages }) {
   let start = 0;
   let end = 0;
 
-  if (page < 3) {
+  if (numberOfPages < 5) {
+    start = 1;
+    end = numberOfPages;
+  }
+
+  if (numberOfPages >= 5 && page < 3) {
     start = 1;
     end = 5;
   } else {
@@ -35,12 +45,22 @@ function buildPageList({ page, numberOfPages }) {
 
 }
 
-export default function PageNumbers() {
+/**
+ * PageNumbers
+ *
+ * @return {object} JSX
+ */
+function PageNumbers() {
 
   const page = useRecoilValue(pageAtom);
   const setPage = useSetRecoilState(pageAtom);
   const numberOfPages = useRecoilValue(numberOfPagesAtom);
 
+  /**
+   * handleClick
+   *
+   * @param {object} e - Event
+   */
   function handleClick(e) {
 
     const { dataset: { disabled, number, id } } = e.target;
@@ -79,10 +99,14 @@ export default function PageNumbers() {
     <nav role="presentation" className={styles.pageNumbers} onClick={handleClick}>
       <Directional type="rwd" page={page} />
       <Directional type="previous" page={page} numberOfPages={numberOfPages} />
-      {numberOfPages > 1 ? buildPageList({ page, numberOfPages }) : null}
+      {numberOfPages > 1
+        ? buildPageList({ page, numberOfPages })
+        : <PageNumber page="1" number="1" disabled />}
       <Directional type="next" page={page} numberOfPages={numberOfPages} />
       <Directional type="ffd" page={page} numberOfPages={numberOfPages} />
     </nav>
   );
 
 }
+
+export default PageNumbers;

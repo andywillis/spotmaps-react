@@ -4,11 +4,9 @@
 .pageNumber {
   user-select: none;
   margin-right: 0.2em;
-  /* width: 3em; */
   text-align: center;
   padding: 0.25em 0.75em;
   background-color: var(--blue-2);
-  /* background-color: rgb(215, 213, 233); */
 }
 
 @media (min-width: 1024px) {
@@ -17,12 +15,16 @@
   }
 }
 
-.pageNumber:hover {
+.pageNumber:not(.disabled):hover {
   cursor: pointer;
 }
 
 .pageNumber:hover,
 .selected {
   background-color: var(--blue-4);
-  /* background-color: rgb(115, 158, 219); */
+}
+
+.disabled {
+  user-select: none;
+  opacity: 0.4;
 }

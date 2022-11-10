@@ -4,7 +4,7 @@ import compileLibrary from '../helpers/compileLibrary';
 
 import rootname from '../../rootname';
 
-import library from '../../data/library/index' assert { type: 'json' };
+import library from '../../data/library/library' assert { type: 'json' };
 
 const compiledLibrary = JSON.stringify(await compileLibrary(library));
 
@@ -16,5 +16,3 @@ try {
 } catch (err) {
   console.log(err);
 }
-
-export default compiledLibrary;

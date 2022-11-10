@@ -5,6 +5,13 @@ import { typeSelector } from '../../store/selectors';
 
 import styles from './index.module.css';
 
+/**
+ * formatItems
+ *
+ * @param {string} type
+ * @param {array} typeList
+ * @return {object} JSX
+ */
 function formatItems(type, typeList) {
   return typeList.map((value) => {
     const link = `/${type}/${value}`;
@@ -18,6 +25,12 @@ function formatItems(type, typeList) {
   });
 }
 
+/**
+ * List
+ *
+ * @param {object} { type }
+ * @return {object} JSX
+ */
 function List({ type }) {
 
   const typeList = useRecoilValue(typeSelector(type));

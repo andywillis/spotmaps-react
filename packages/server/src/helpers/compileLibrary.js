@@ -5,7 +5,13 @@ import rootname from '../../rootname';
 import libraryArrayToObject from './libraryArrayToObject';
 import getHexData from './getHexData';
 
-export default async function compileLibrary(library) {
+/**
+ * compileLibrary
+ *
+ * @param {array} library
+ * @return {array} Compiled library 
+ */
+async function compileLibrary(library) {
 
   const hexFilePath = `${rootname}/data/hex/`;
   const filenames = await fs.readdir(hexFilePath);
@@ -22,3 +28,5 @@ export default async function compileLibrary(library) {
   return Object.values(libraryObj);
 
 }
+
+export default compileLibrary;
