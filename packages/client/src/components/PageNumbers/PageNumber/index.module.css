@@ -17,7 +17,7 @@
   }
 }
 
-.pageNumber:hover {
+.pageNumber:not(.disabled):hover {
   cursor: pointer;
 }
 
@@ -25,4 +25,9 @@
 .selected {
   background-color: var(--blue-4);
   /* background-color: rgb(115, 158, 219); */
+}
+
+.disabled {
+  user-select: none;
+  opacity: 0.4;
 }

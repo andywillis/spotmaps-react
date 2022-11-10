@@ -3,9 +3,9 @@ import { selectorFamily } from 'recoil';
 // eslint-disable-next-line import/prefer-default-export
 export const spotmapsDataQuery = selectorFamily({
   key: 'spotmapsDataQuery',
-  get: filteredData => async () => {
+  get: spotmap => async () => {
 
-    const promises = filteredData.map(async spotmap => {
+    const promises = spotmap.map(async spotmap => {
       try {
         const response = await fetch(`/spotmap/${spotmap.id}`);
         if (response.ok) return response.json();

@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import {
   useRecoilValue,
   useRecoilValueLoadable,
-  useResetRecoilState,
   useSetRecoilState
 } from 'recoil';
 
@@ -16,7 +15,7 @@ import PageNumbers from '../PageNumbers';
 import useWindowResize from '../../hooks/useWindowResize';
 
 import {
-  mainWidthAtom, numberOfFilteredPagesAtom
+  mainWidthAtom, numberOfPagesAtom, limitAtom, pageAtom
 } from '../../store/atoms';
 
 import { spotmapsSelector } from '../../store/selectors';
@@ -37,13 +36,17 @@ function SpotmapList() {
   const { type, value } = useParams();
 
   const mainWidth = useRecoilValue(mainWidthAtom);
+  const limit = useRecoilValue(limitAtom);
+  const page = useRecoilValue(pageAtom);
 
   const setMainWidth = useSetRecoilState(mainWidthAtom);
   const filteredData = useRecoilValue(spotmapsSelector({ type, value }));
-  const setNumberOfFilteredPages = useSetRecoilState(numberOfFilteredPagesAtom);
-  const resetNumberOfFilteredPages = useResetRecoilState(numberOfFilteredPagesAtom);
+  const setNumberOfPages = useSetRecoilState(numberOfPagesAtom);
+  const setPage = useSetRecoilState(pageAtom);
 
-  const { state, contents } = useRecoilValueLoadable(spotmapsDataQuery(filteredData));
+  const spotmap = filteredData.slice((page - 1) * limit, (page * limit));
+
+  const { state, contents } = useRecoilValueLoadable(spotmapsDataQuery(spotmap));
 
   useEffect(() => {
     const bound = mainRef.current.getBoundingClientRect();
@@ -51,18 +54,9 @@ function SpotmapList() {
   }, [ windowSize.width, setMainWidth ]);
 
   useEffect(() => {
-    if (!type && !value) {
-      resetNumberOfFilteredPages();
-    } else {
-      setNumberOfFilteredPages(filteredData.length);
-    }
-  }, [
-    type,
-    value,
-    filteredData,
-    setNumberOfFilteredPages,
-    resetNumberOfFilteredPages
-  ]);
+    setNumberOfPages(filteredData.length);
+    setPage(1);
+  }, [ filteredData, setPage, setNumberOfPages ]);
 
   const spotmapConteinerStyle = classNames({
     [styles.spotmapList]: true,
@@ -75,10 +69,13 @@ function SpotmapList() {
     <>
       <PageNumbers />
       <div ref={mainRef} className={spotmapConteinerStyle}>
-        {state === 'hasValue' && contents.length ? contents.map(data => {
-          const { id } = data;
-          return <SpotmapContainer key={id} data={data} />;
-        }) : <Spinner />}
+        {state === 'hasValue' && contents.length
+          ? (
+            contents.map(data => {
+              const { id } = data;
+              return <SpotmapContainer key={id} data={data} />;
+            })
+          ) : <Spinner />}
       </div>
     </>
   );

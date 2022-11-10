@@ -1,4 +1,5 @@
 @import "open-props/gray";
+@import "open-props/green";
 @import "open-props/yellow";
 
 .details {
@@ -36,4 +37,17 @@
 .downloadSwatch:hover {
   cursor: pointer;
   background-color: var(--gray-6);
+}
+
+.type {
+  display: inline-block;
+  margin-right: 0.25em;
+}
+
+.type:not(:last-child):after {
+  content: ','
+}
+
+.highlight {
+  color: var(--green-3);
 }

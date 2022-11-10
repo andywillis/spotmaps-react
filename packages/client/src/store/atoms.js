@@ -5,19 +5,14 @@ export const libraryAtom = atom({
   default: []
 });
 
-export const numberOfPagesAtom = atom({
-  key: 'numberOfPagesAtom',
-  default: 0
-});
-
 export const filteredLibraryAtom = atom({
   key: 'filteredLibraryAtom',
   default: libraryAtom
 });
 
-export const numberOfFilteredPagesAtom = atom({
-  key: 'numberOfFilteredPagesAtom',
-  default: numberOfPagesAtom
+export const numberOfPagesAtom = atom({
+  key: 'numberOfPagesAtom',
+  default: 0
 });
 
 export const pageAtom = atom({
@@ -28,11 +23,6 @@ export const pageAtom = atom({
 export const limitAtom = atom({
   key: 'limitAtom',
   default: 1
-});
-
-export const pathAtom = atom({
-  key: 'pathAtom',
-  default: '/'
 });
 
 export const mainWidthAtom = atom({

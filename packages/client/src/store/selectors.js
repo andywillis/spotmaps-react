@@ -2,9 +2,8 @@ import { selectorFamily } from 'recoil';
 
 import {
   libraryAtom,
-  // filteredLibraryAtom,
-  limitAtom,
-  pageAtom
+  // limitAtom,
+  // pageAtom
 } from './atoms';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -12,10 +11,9 @@ export const spotmapsSelector = selectorFamily({
   key: 'spotmapsSelector',
   get: ({ type, value }) => ({ get }) => {
 
-    // const library = get(filteredLibraryAtom);
     const library = get(libraryAtom);
-    const page = get(pageAtom);
-    const limit = get(limitAtom);
+    // const page = get(pageAtom);
+    // const limit = get(limitAtom);
 
     if (type && value) {
       return library.filter((spotmap) => {
@@ -24,7 +22,9 @@ export const spotmapsSelector = selectorFamily({
       });
     }
 
-    return library.slice((page - 1) * limit, (page * limit));
+    return library;
+
+    // return library.slice((page - 1) * limit, (page * limit));
 
   }
 

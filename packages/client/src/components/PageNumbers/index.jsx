@@ -3,7 +3,7 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import PageNumber from './PageNumber';
 import Directional from './Directional';
 
-import { pageAtom, numberOfFilteredPagesAtom } from '../../store/atoms';
+import { pageAtom, numberOfPagesAtom } from '../../store/atoms';
 
 import styles from './index.module.css';
 
@@ -14,7 +14,12 @@ function buildPageList({ page, numberOfPages }) {
   let start = 0;
   let end = 0;
 
-  if (page < 3) {
+  if (numberOfPages < 5) {
+    start = 1;
+    end = numberOfPages;
+  }
+
+  if (numberOfPages >= 5 && page < 3) {
     start = 1;
     end = 5;
   } else {
@@ -38,7 +43,7 @@ export default function PageNumbers() {
 
   const page = useRecoilValue(pageAtom);
   const setPage = useSetRecoilState(pageAtom);
-  const numberOfPages = useRecoilValue(numberOfFilteredPagesAtom);
+  const numberOfPages = useRecoilValue(numberOfPagesAtom);
 
   function handleClick(e) {
 
@@ -80,7 +85,7 @@ export default function PageNumbers() {
       <Directional type="previous" page={page} numberOfPages={numberOfPages} />
       {numberOfPages > 1
         ? buildPageList({ page, numberOfPages })
-        : <PageNumber page="1" number="1" />}
+        : <PageNumber page="1" number="1" disabled />}
       <Directional type="next" page={page} numberOfPages={numberOfPages} />
       <Directional type="ffd" page={page} numberOfPages={numberOfPages} />
     </nav>

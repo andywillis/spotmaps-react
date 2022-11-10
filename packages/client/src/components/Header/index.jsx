@@ -23,13 +23,13 @@ export default function Header() {
             >Director
             </NavLink>
           </li>
-          {/* <li>
+          <li>
             <NavLink
               className={({ isActive }) => isActive ? style.active : undefined}
               to="/genre"
             >Genre
             </NavLink>
-          </li> */}
+          </li>
           <li>
             <NavLink
               to="/title"
