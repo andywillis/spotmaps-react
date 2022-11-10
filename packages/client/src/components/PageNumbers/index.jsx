@@ -38,7 +38,7 @@ function buildPageList({ page, numberOfPages }) {
   }
 
   for (let i = start; i <= end; i++) {
-    pages.push(<PageNumber page={page} key={i} number={i} />);
+    pages.push(<PageNumber key={i} number={i} />);
   }
 
   return pages;
@@ -97,13 +97,13 @@ function PageNumbers() {
 
   return (
     <nav role="presentation" className={styles.pageNumbers} onClick={handleClick}>
-      <Directional type="rwd" page={page} />
-      <Directional type="previous" page={page} numberOfPages={numberOfPages} />
+      <Directional type="rwd" />
+      <Directional type="previous" />
       {numberOfPages > 1
         ? buildPageList({ page, numberOfPages })
         : <PageNumber page="1" number="1" disabled />}
-      <Directional type="next" page={page} numberOfPages={numberOfPages} />
-      <Directional type="ffd" page={page} numberOfPages={numberOfPages} />
+      <Directional type="next" />
+      <Directional type="ffd" />
     </nav>
   );
 

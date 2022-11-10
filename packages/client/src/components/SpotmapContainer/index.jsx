@@ -19,21 +19,11 @@ function SpotmapContainer(props) {
 
   const mainWidth = useRecoilValue(mainWidthAtom);
 
-  /**
-   * handleAseDownload
-   *
-   * @param {string} filename
-   */
-  function handleAseDownload(filename) {
-    console.log(filename);
-  }
-
   return (
     <section className={styles.spotmapContainer} style={{ width: mainWidth }}>
       <Details
         mainWidth={mainWidth}
         data={details}
-        handleAseDownload={handleAseDownload}
       />
       <SpotmapCanvas
         mainWidth={mainWidth}

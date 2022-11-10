@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import classnames from 'classnames';
 import { useParams } from 'react-router-dom';
 
@@ -11,9 +12,38 @@ import styles from './index.module.css';
  */
 function Details({ data }) {
 
+  const [ aseIsDownloading, setAseIsDownloading ] = useState();
+
   const { type, value } = useParams();
 
   const { id, title, director, writer, year, genre } = data;
+
+  /**
+   * handleAseDownload
+   *
+   * @param {string} filename
+   */
+  async function handleAseDownload(title) {
+    setAseIsDownloading(true);
+    try {
+      const response = await fetch(`/ase/${title}`);
+      if (!response.ok) throw Error('Bad API response');
+      const blob = await response.blob();
+      const anchor = document.createElement('a');
+      anchor.href = URL.createObjectURL(blob);
+      anchor.setAttribute('download', `${title}.ase`);
+      anchor.click();
+      anchor.remove();
+      setAseIsDownloading(false);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  const downloadSwatchStyle = classnames({
+    [styles.downloadSwatch]: true,
+    [styles.disabled]: aseIsDownloading && 'disabled'
+  });
 
   return (
     <div className={styles.details}>
@@ -106,17 +136,19 @@ function Details({ data }) {
           })}
         </div>
       </div>
-      {/* <div className="download">
-        <div className={styles.label}>&nbsp;</div>
+      <div>
+        <div className={styles.label}>Swatch</div>
         <div className={styles.detail}>
-          <button
-            className={styles.downloadSwatch}
-            type="button"
-            onClick={() => handleAseDownload(title)}
-          >Download swatch (.ase format)
-          </button>
+          <div className={styles.download}>
+            <button
+              className={downloadSwatchStyle}
+              type="button"
+              onClick={() => handleAseDownload(title)}
+            >Download ASE file
+            </button>
+          </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 
