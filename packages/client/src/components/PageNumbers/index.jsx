@@ -23,9 +23,7 @@ function buildPageList({ page, numberOfPages }) {
   if (numberOfPages < 5) {
     start = 1;
     end = numberOfPages;
-  }
-
-  if (numberOfPages >= 5 && page < 3) {
+  } else if (numberOfPages >= 5 && page < 3) {
     start = 1;
     end = 5;
   } else {
