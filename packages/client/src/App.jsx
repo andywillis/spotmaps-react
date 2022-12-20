@@ -11,8 +11,6 @@ import {
   numberOfPagesAtom
 } from './store/atoms';
 
-import styles from './App.module.css';
-
 /**
  * App
  *
@@ -36,11 +34,11 @@ function App() {
   }, [ setLibrary, setFilteredLibrary, setNumberOfPages ]);
 
   return (
-    <article className={styles.article}>
+    <>
       <Header />
       <Main />
       <Footer />
-    </article>
+    </>
   );
 }
 

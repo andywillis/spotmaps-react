@@ -2,13 +2,17 @@ import path from 'path';
 import express from 'express';
 import http from 'http';
 import helmet from 'helmet';
+import expressStaticGzip from 'express-static-gzip';
 import compression from 'compression';
 
 import rootname from '../../rootname';
 
 const app = express();
 
-app.use(express.static(path.join(rootname, '../client/build')));
+const buildPath = path.join(rootname, '../client/build');
+
+app.use('/', expressStaticGzip(buildPath));
+app.use(express.static(buildPath));
 app.use(helmet());
 app.use(express.json());
 app.use(compression());
