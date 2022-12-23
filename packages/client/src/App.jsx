@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 
 import Footer from './components/Footer';
-import Header from './components/Header';
 import Main from './components/Main';
+import Header from './components/Header';
 
 import {
   libraryAtom,

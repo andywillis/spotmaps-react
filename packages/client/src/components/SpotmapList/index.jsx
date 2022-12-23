@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import {
   useRecoilValue,
+  useRecoilState,
   useRecoilValueLoadable,
   useSetRecoilState
 } from 'recoil';
@@ -32,21 +33,18 @@ function SpotmapList() {
 
   const windowSize = useWindowResize();
   const mainRef = useRef(null);
-
   const { type, value } = useParams();
 
-  const mainWidth = useRecoilValue(mainWidthAtom);
-  const limit = useRecoilValue(limitAtom);
-  const page = useRecoilValue(pageAtom);
+  const [ mainWidth, setMainWidth ] = useRecoilState(mainWidthAtom);
+  const [ page, setPage ] = useRecoilState(pageAtom);
 
-  const setMainWidth = useSetRecoilState(mainWidthAtom);
+  const limit = useRecoilValue(limitAtom);
+
   const filteredData = useRecoilValue(spotmapsSelector({ type, value }));
   const setNumberOfPages = useSetRecoilState(numberOfPagesAtom);
-  const setPage = useSetRecoilState(pageAtom);
+  const spotmaps = filteredData.slice((page - 1) * limit, (page * limit));
 
-  const spotmap = filteredData.slice((page - 1) * limit, (page * limit));
-
-  const { state, contents } = useRecoilValueLoadable(spotmapsDataQuery(spotmap));
+  const { state, contents } = useRecoilValueLoadable(spotmapsDataQuery(spotmaps));
 
   useEffect(() => {
     const bound = mainRef.current.getBoundingClientRect();
@@ -58,7 +56,7 @@ function SpotmapList() {
     setPage(1);
   }, [ filteredData, setPage, setNumberOfPages ]);
 
-  const spotmapConteinerStyle = classNames({
+  const spotmapContainerStyle = classNames({
     [styles.spotmapList]: true,
     [styles.visible]: mainWidth > 0,
     [styles.fadeOutContainer]: state === 'loading' && mainWidth > 0,
@@ -68,12 +66,16 @@ function SpotmapList() {
   return (
     <>
       <PageNumbers />
-      <div ref={mainRef} className={spotmapConteinerStyle}>
+      <div ref={mainRef} className={spotmapContainerStyle}>
         {state === 'hasValue' && contents.length
           ? (
             contents.map(data => {
-              const { id } = data;
-              return <SpotmapContainer key={id} data={data} />;
+              return (
+                <SpotmapContainer
+                  key={data.id}
+                  data={data}
+                />
+              );
             })
           ) : <Spinner />}
       </div>

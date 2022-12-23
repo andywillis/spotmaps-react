@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import classnames from 'classnames';
+import html2canvas from 'html2canvas';
 import { useParams } from 'react-router-dom';
 
 import styles from './index.module.css';
@@ -10,9 +11,9 @@ import styles from './index.module.css';
  * @param {object} { data }
  * @return {object} JSX
  */
-function Details({ data }) {
+function Details({ data, containerRef }) {
 
-  const [ aseIsDownloading, setAseIsDownloading ] = useState();
+  const [ isDownloading, setIsDownloading ] = useState({});
 
   const { type, value } = useParams();
 
@@ -24,7 +25,7 @@ function Details({ data }) {
    * @param {string} filename
    */
   async function handleAseDownload(title) {
-    setAseIsDownloading(true);
+    setIsDownloading(prev => ({ ...prev, ase: true }));
     try {
       const response = await fetch(`/ase/${title}`);
       if (!response.ok) throw Error('Bad API response');
@@ -34,15 +35,44 @@ function Details({ data }) {
       anchor.setAttribute('download', `${title}.ase`);
       anchor.click();
       anchor.remove();
-      setAseIsDownloading(false);
+      setIsDownloading(prev => ({ ...prev, ase: false }));
     } catch (err) {
       console.log(err);
     }
   }
 
-  const downloadSwatchStyle = classnames({
-    [styles.downloadSwatch]: true,
-    [styles.disabled]: aseIsDownloading && 'disabled'
+  /**
+   * handlePngDownload
+   *
+   * @param {string} filename
+   */
+  async function handleImageDownload(title, asJpg) {
+    const type = asJpg ? 'jpg' : 'png';
+    const encoding = asJpg ? 'image/jpeg' : 'image/png';
+    setIsDownloading(prev => ({ ...prev, [type]: true }));
+    const canvas = await html2canvas(containerRef.current);
+    const dataUrl = canvas.toDataURL(encoding);
+    const anchor = document.createElement('a');
+    anchor.href = dataUrl;
+    anchor.setAttribute('download', `${title}.${type}`);
+    anchor.click();
+    anchor.remove();
+    setIsDownloading(prev => ({ ...prev, [type]: false }));
+  }
+
+  const downloadAseButtonStyle = classnames({
+    [styles.downloadButton]: true,
+    [styles.disabled]: isDownloading.ase && 'disabled'
+  });
+
+  const downloadPngButtonStyle = classnames({
+    [styles.downloadButton]: true,
+    [styles.disabled]: isDownloading.png && 'disabled'
+  });
+
+  const downloadJpgButtonStyle = classnames({
+    [styles.downloadButton]: true,
+    [styles.disabled]: isDownloading.jpg && 'disabled'
   });
 
   return (
@@ -137,14 +167,26 @@ function Details({ data }) {
         </div>
       </div>
       <div>
-        <div className={styles.label}>Swatch</div>
+        <div className={styles.label}>Download</div>
         <div className={styles.detail}>
           <div className={styles.download}>
             <button
-              className={downloadSwatchStyle}
+              className={downloadAseButtonStyle}
               type="button"
               onClick={() => handleAseDownload(title)}
-            >Download ASE file
+            >ASE file
+            </button>
+            <button
+              className={downloadPngButtonStyle}
+              type="button"
+              onClick={() => handleImageDownload(title, false)}
+            >PNG image
+            </button>
+            <button
+              className={downloadJpgButtonStyle}
+              type="button"
+              onClick={() => handleImageDownload(title, true)}
+            >JPG image
             </button>
           </div>
         </div>

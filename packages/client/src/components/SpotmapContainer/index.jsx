@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { useRecoilValue } from 'recoil';
 
 import Details from '../Details';
@@ -17,11 +18,18 @@ function SpotmapContainer(props) {
 
   const { data: { hexData, numberOfSpots, ...details } } = props;
 
+  const containerRef = useRef(null);
+
   const mainWidth = useRecoilValue(mainWidthAtom);
 
   return (
-    <section className={styles.spotmapContainer} style={{ width: mainWidth }}>
+    <section
+      className={styles.spotmapContainer}
+      style={{ width: mainWidth }}
+      ref={containerRef}
+    >
       <Details
+        containerRef={containerRef}
         mainWidth={mainWidth}
         data={details}
       />

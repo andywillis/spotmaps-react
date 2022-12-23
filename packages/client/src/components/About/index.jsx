@@ -15,7 +15,7 @@ function About() {
         <p>Films are processed through a Python/OpenCV pipeline: each frame&apos;s colour is sampled, and a spot of average colour is produced from the combination of one second&apos;s frames.</p>
         <p>Spots are laid out 60 per line to represent one minute of film time. The length of the image represents the number of minutes in the film.</p>
         <p>This is the second version of <a href="https://github.com/andywillis/spotmaps">Spotmaps</a> rewritten entirely with React.</p>
-        {/* <p>A 24-colour Adobe swatch file in ASE format and a hex RGB colour file are available to download for each spotmap.</p> */}
+        <p>A 24-colour Adobe swatch file in ASE format and a hex RGB colour file are available to download for each spotmap.</p>
       </article>
       <article className={styles.group}>
         <h2>Coverage from the original version</h2>
