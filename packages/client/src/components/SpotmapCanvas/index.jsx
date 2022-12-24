@@ -10,11 +10,9 @@ import styles from './index.module.css';
  */
 function SpotmapCanvas(props) {
 
-  const { numberOfSpots, hexData, mainWidth } = props;
+  const { numberOfSpots, hexData, mainWidth, canvasRef } = props;
 
   const [ spotSize, setSpotSize ] = useState(8);
-
-  const canvasRef = useRef(null);
 
   useEffect(() => {
     setSpotSize(mainWidth < 360 ? 2 : Math.floor(mainWidth / 60));

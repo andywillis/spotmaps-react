@@ -18,7 +18,7 @@ function SpotmapContainer(props) {
 
   const { data: { hexData, numberOfSpots, ...details } } = props;
 
-  const containerRef = useRef(null);
+  const canvasRef = useRef(null);
 
   const mainWidth = useRecoilValue(mainWidthAtom);
 
@@ -26,10 +26,9 @@ function SpotmapContainer(props) {
     <section
       className={styles.spotmapContainer}
       style={{ width: mainWidth }}
-      ref={containerRef}
     >
       <Details
-        containerRef={containerRef}
+        canvasRef={canvasRef}
         mainWidth={mainWidth}
         data={details}
       />
@@ -37,6 +36,7 @@ function SpotmapContainer(props) {
         mainWidth={mainWidth}
         numberOfSpots={numberOfSpots}
         hexData={hexData}
+        canvasRef={canvasRef}
       />
     </section>
   );

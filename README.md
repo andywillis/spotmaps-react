@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Spotmaps with React upgraded to a new workflow.
+Spotmaps with React.
+
+![The Black Hole, 1979](docs/Black%20Hole%2C%20The.png)
 
 ## Installation
 
@@ -10,9 +12,8 @@ Spotmaps with React upgraded to a new workflow.
 - Clone the repo
 - Rename the cloned repo
 - `cd` to the folder
-
-`pnpm install`
-`pnpm run dev`
+- `pnpm install`
+- `pnpm run dev`
 
 ## To do
 
