@@ -1,5 +1,9 @@
 # spotmaps-react
 
+## Note
+
+This repo is archived so that I can concentrate on [the Preact version](https://github.com/andywillis/spotmaps-preact).
+
 ## Introduction
 
 Spotmaps with React.
